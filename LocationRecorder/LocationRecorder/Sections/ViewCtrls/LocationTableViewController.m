@@ -61,6 +61,7 @@
                                                object:nil];
     
     // UI
+    self.nameTxtField.placeholder = @"请输入名称";
     [self.locationSwitchBtn setTitle:@"开始定位" forState:UIControlStateNormal];
     [self.locationSwitchBtn setTitle:@"停止定位" forState:UIControlStateSelected];
     [self.locationSwitchBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
@@ -89,7 +90,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 8;
+    return 5;
 }
 
 /*
