@@ -7,6 +7,8 @@
 //
 
 #import "LocationTableViewController.h"
+#import "TSMessage.h"
+#import "TransformCorrdinate.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface LocationTableViewController ()
@@ -27,7 +29,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *locationSwitchBtn;
 
 @property (nonatomic, strong) CLLocationManager *locationMgr;
-
+@property (nonatomic, strong) CLGeocoder *geocoder;
 
 @end
 
@@ -129,21 +131,26 @@
 #pragma mark - Action
 - (IBAction)refreshBtn:(id)sender
 {
-    if (self.locationSwitchBtn.selected)
+    if ([self isLocationServicesEnabled])
     {
-        [_locationMgr stopUpdatingLocation];
-//        self.refreshingIndicator.hidden = YES;
-        self.refreshingTipsLabel.hidden = YES;
-//        [self.refreshingIndicator stopAnimating];
+        if (self.locationSwitchBtn.selected)
+        {
+            [_locationMgr stopUpdatingLocation];
+            self.refreshingTipsLabel.hidden = YES;
+        }
+        else
+        {
+            self.addressLabel.text = @"";
+            
+            [_locationMgr startUpdatingLocation];
+            self.refreshingTipsLabel.hidden = NO;
+        }
+        self.locationSwitchBtn.selected = !self.locationSwitchBtn.selected;
     }
     else
     {
-        [_locationMgr startUpdatingLocation];
-//        self.refreshingIndicator.hidden = NO;
-        self.refreshingTipsLabel.hidden = NO;
-//        [self.refreshingIndicator startAnimating];
+        [self showFailedMsgTitle:@"获取坐标失败。" subTitle:@"请在设置中开启应用的定位权限。"];
     }
-    self.locationSwitchBtn.selected = !self.locationSwitchBtn.selected;
 }
 
 - (IBAction)saveBtn:(id)sender
@@ -158,15 +165,45 @@
 {
     [self showLocationInfo:newLocation];
     
+    // 坐标取地址
+    // gps坐标转谷歌坐标
+    CLLocationCoordinate2D objGoogleLoc = [TransformCorrdinate GPSLocToGoogleLoc:newLocation.coordinate];
+    CLLocation *locToGetGeo = [[CLLocation alloc] initWithLatitude:objGoogleLoc.latitude longitude:objGoogleLoc.longitude];
+    _geocoder = [[CLGeocoder alloc] init];
+    [_geocoder reverseGeocodeLocation:locToGetGeo completionHandler:^(NSArray *arrPlaceMarks, NSError *err)
+     {
+         if (arrPlaceMarks && (arrPlaceMarks.count > 0))
+         {
+             CLPlacemark *objPlace = [arrPlaceMarks objectAtIndex:0];
+             
+             NSLog(@"\n\n\naddress\n%@\n\n\n", [objPlace.addressDictionary description]);
+             
+             NSString *city = [objPlace.addressDictionary objectForKey:@"City"];
+             NSString *street = [objPlace.addressDictionary objectForKey:@"Street"];
+             NSString *subLocality = [objPlace.addressDictionary objectForKey:@"SubLocality"];
+             NSString *name = [objPlace.addressDictionary objectForKey:@"Name"];
+             self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", city, subLocality, street, name];
+         }
+         else
+         {
+             // 地址获取失败
+             self.addressLabel.text = @"获取地址失败";
+         }
+     }];
 }
 
 -(void)locationManager:(CLLocationManager *)manager
       didFailWithError:(NSError *)error
 {
-    
+    [self showFailedMsgTitle:@"获取坐标失败。" subTitle:error.localizedDescription];
 }
 
 #pragma mark -
+- (BOOL)isLocationServicesEnabled
+{
+    return ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied));
+}
+
 - (void)showLocationInfo:(CLLocation *)location
 {
     float altitude = location.altitude;
@@ -180,9 +217,17 @@
     self.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", altitude];
     self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"%.5f", hAccuracy];
     self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"%.2f m", vAccuracy];
+    
+    NSDate *currTime = [NSDate date];
+    self.datetimeLabel.text = [UtilityFunc getStringFromDate:currTime byFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
-
+- (void)showFailedMsgTitle:(NSString *)title subTitle:(NSString *)subTitle
+{
+    [TSMessage showNotificationWithTitle:title
+                                subtitle:subTitle
+                                    type:TSMessageNotificationTypeWarning];
+}
 
 
 

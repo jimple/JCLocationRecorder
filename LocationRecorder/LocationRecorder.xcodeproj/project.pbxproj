@@ -38,6 +38,7 @@
 		07ADCBDF199653BF00D36620 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBDE199653BF00D36620 /* SettingViewController.m */; };
 		07ADCBE31997064D00D36620 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE21997064D00D36620 /* LocationTableViewController.m */; };
 		07ADCBE619970F8300D36620 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE519970F8300D36620 /* RecordModel.m */; };
+		07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */; };
 		EA50E1065A344D04BCFFC072 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F288FC416A8E4C36906D57B3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,8 @@
 		07ADCBE21997064D00D36620 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
 		07ADCBE419970F8300D36620 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
 		07ADCBE519970F8300D36620 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		07ADCBE919971F2100D36620 /* TransformCorrdinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformCorrdinate.h; sourceTree = "<group>"; };
+		07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformCorrdinate.m; sourceTree = "<group>"; };
 		F1DE7F0032174374B835218D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F288FC416A8E4C36906D57B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -371,6 +374,7 @@
 		07ADCB9E19964B1600D36620 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				07ADCBE819971F2100D36620 /* TransformCorrdinateInGPSMarsBaidu */,
 				07ADCB9F19964B1600D36620 /* CustomLocalisator */,
 				07ADCBA219964B1600D36620 /* JCTableLoadMoreActivityIndicator */,
 				07ADCBA719964B1600D36620 /* OpenUDID */,
@@ -451,6 +455,15 @@
 				07ADCBD21996534D00D36620 /* SettingNavigationController.m */,
 			);
 			name = NavigationCtrls;
+			sourceTree = "<group>";
+		};
+		07ADCBE819971F2100D36620 /* TransformCorrdinateInGPSMarsBaidu */ = {
+			isa = PBXGroup;
+			children = (
+				07ADCBE919971F2100D36620 /* TransformCorrdinate.h */,
+				07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */,
+			);
+			path = TransformCorrdinateInGPSMarsBaidu;
 			sourceTree = "<group>";
 		};
 		3E1D23E1D3FC42F39894CDEB /* Frameworks */ = {
@@ -621,6 +634,7 @@
 				07ADCBB119964B1600D36620 /* NSTimer+PauseTimer.m in Sources */,
 				07ADCBCD1996532A00D36620 /* MapNavigationController.m in Sources */,
 				07ADCBBC19964B1600D36620 /* UIScrollView+JCLoadMoreIndicator.m in Sources */,
+				07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */,
 				07ADCBD91996539D00D36620 /* MapViewController.m in Sources */,
 				07ADCBDF199653BF00D36620 /* SettingViewController.m in Sources */,
 			);
