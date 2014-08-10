@@ -39,6 +39,8 @@
 		07ADCBE31997064D00D36620 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE21997064D00D36620 /* LocationTableViewController.m */; };
 		07ADCBE619970F8300D36620 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE519970F8300D36620 /* RecordModel.m */; };
 		07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */; };
+		07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */; };
+		07ADCBF21997A73D00D36620 /* RecordStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBF11997A73D00D36620 /* RecordStorageManager.m */; };
 		EA50E1065A344D04BCFFC072 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F288FC416A8E4C36906D57B3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,10 @@
 		07ADCBE519970F8300D36620 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
 		07ADCBE919971F2100D36620 /* TransformCorrdinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformCorrdinate.h; sourceTree = "<group>"; };
 		07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformCorrdinate.m; sourceTree = "<group>"; };
+		07ADCBED19979EA200D36620 /* AutoDismissKeyboardViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDismissKeyboardViewHelper.h; sourceTree = "<group>"; };
+		07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDismissKeyboardViewHelper.m; sourceTree = "<group>"; };
+		07ADCBF01997A73D00D36620 /* RecordStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStorageManager.h; sourceTree = "<group>"; };
+		07ADCBF11997A73D00D36620 /* RecordStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStorageManager.m; sourceTree = "<group>"; };
 		F1DE7F0032174374B835218D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F288FC416A8E4C36906D57B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -245,6 +251,8 @@
 		07ADCB7D19964B1600D36620 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				07ADCBED19979EA200D36620 /* AutoDismissKeyboardViewHelper.h */,
+				07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */,
 				07ADCB7E19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.h */,
 				07ADCB7F19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m */,
 				07ADCB8019964B1600D36620 /* UtilityFunc.h */,
@@ -341,6 +349,8 @@
 			children = (
 				07ADCB9419964B1600D36620 /* GVUserDefaults+AppConfig.h */,
 				07ADCB9519964B1600D36620 /* GVUserDefaults+AppConfig.m */,
+				07ADCBF01997A73D00D36620 /* RecordStorageManager.h */,
+				07ADCBF11997A73D00D36620 /* RecordStorageManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -619,10 +629,12 @@
 				07ADCBB019964B1600D36620 /* AppDelegate.m in Sources */,
 				07ADCBB419964B1600D36620 /* UtilityFunc.m in Sources */,
 				07ADCBB619964B1600D36620 /* GVUserDefaults+AppConfig.m in Sources */,
+				07ADCBF21997A73D00D36620 /* RecordStorageManager.m in Sources */,
 				07ADCBE31997064D00D36620 /* LocationTableViewController.m in Sources */,
 				07ADCBBA19964B1600D36620 /* Localisator.m in Sources */,
 				07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */,
 				07ADCBBB19964B1600D36620 /* JCLoadMoreActivityIndicator.m in Sources */,
+				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
 				07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */,
 				07ADCBBD19964B1600D36620 /* OpenUDID.m in Sources */,

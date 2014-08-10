@@ -9,7 +9,7 @@
 #import "GVUserDefaults+AppConfig.h"
 
 @implementation GVUserDefaults (AppConfig)
-@dynamic appVersion2LaunchTimesDic;
+@dynamic locationRecordDic;
 
 //- (NSString *)transformKey:(NSString *)key
 //{
@@ -20,7 +20,7 @@
 - (NSDictionary *)setupDefaults
 {
     return @{
-             @"appVersion2LaunchTimesDic": @{},
+             @"locationRecordDic": @{},
              };
 }
 

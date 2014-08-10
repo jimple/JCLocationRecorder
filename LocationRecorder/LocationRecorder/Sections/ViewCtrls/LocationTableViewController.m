@@ -10,10 +10,13 @@
 #import "TSMessage.h"
 #import "TransformCorrdinate.h"
 #import <CoreLocation/CoreLocation.h>
+#import "RecordModel.h"
+#import "RecordStorageManager.h"
 
 @interface LocationTableViewController ()
 <
-    CLLocationManagerDelegate
+    CLLocationManagerDelegate,
+    UITextFieldDelegate
 >
 
 @property (nonatomic, weak) IBOutlet UITextField *nameTxtField;
@@ -27,9 +30,12 @@
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *refreshingIndicator;
 @property (nonatomic, weak) IBOutlet UILabel *refreshingTipsLabel;
 @property (nonatomic, weak) IBOutlet UIButton *locationSwitchBtn;
+@property (nonatomic, weak) IBOutlet UIButton *saveBtn;
 
 @property (nonatomic, strong) CLLocationManager *locationMgr;
 @property (nonatomic, strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) RecordModel *recordModel;
+@property (nonatomic, strong) UIColor *defaultAddressTxtColor;
 
 @end
 
@@ -47,6 +53,12 @@
     _locationMgr = [[CLLocationManager alloc] init];
     _locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
     _locationMgr.delegate = self;
+    _recordModel = [[RecordModel alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleAppEnterBackground:)
+                                                 name:kNFAppEnterBackground
+                                               object:nil];
     
     // UI
     [self.locationSwitchBtn setTitle:@"开始定位" forState:UIControlStateNormal];
@@ -54,7 +66,13 @@
     [self.locationSwitchBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     self.refreshingIndicator.hidden = YES;
     self.refreshingTipsLabel.hidden = YES;
+    [self setupButtonUI:self.locationSwitchBtn];
+    [self setupButtonUI:self.saveBtn];
     
+    self.nameTxtField.delegate = self;
+    [self.nameTxtField addTarget:self action:@selector(keyboardPressDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    _defaultAddressTxtColor = self.addressLabel.textColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,6 +149,104 @@
 #pragma mark - Action
 - (IBAction)refreshBtn:(id)sender
 {
+    [UtilityFunc viewRemoveShadow:self.locationSwitchBtn];
+    [self switchLocationService];
+}
+
+- (IBAction)saveBtn:(id)sender
+{
+    if ([self checkRecordDataAndShowInvalidItemStatus])
+    {
+        [RecordStorageManagerObj saveRecord:_recordModel];
+    }
+    else
+    {
+        [self showFailedMsgTitle:@"部分数据缺失" subTitle:@"请检查是否填写了<名称>，是否已经获取到位置信息。"];
+    }
+}
+
+#pragma mark - CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager
+   didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation
+{
+    [self showLocationInfo:newLocation];
+    
+    _recordModel.location = newLocation;
+    _recordModel.recordTime = @([[NSDate date] timeIntervalSince1970]);
+    
+    // 坐标取地址
+    // gps坐标转谷歌坐标
+    CLLocationCoordinate2D objGoogleLoc = [TransformCorrdinate GPSLocToGoogleLoc:newLocation.coordinate];
+    CLLocation *locToGetGeo = [[CLLocation alloc] initWithLatitude:objGoogleLoc.latitude longitude:objGoogleLoc.longitude];
+    _geocoder = [[CLGeocoder alloc] init];
+    __weak typeof(self) weakSelf = self;
+    [_geocoder reverseGeocodeLocation:locToGetGeo completionHandler:^(NSArray *arrPlaceMarks, NSError *err)
+     {
+         __strong typeof(self) strongSelf = weakSelf;
+         if (arrPlaceMarks && (arrPlaceMarks.count > 0))
+         {
+             CLPlacemark *objPlace = [arrPlaceMarks objectAtIndex:0];
+
+             NSString *city = [objPlace.addressDictionary objectForKey:@"City"];
+             NSString *street = [objPlace.addressDictionary objectForKey:@"Street"];
+             NSString *subLocality = [objPlace.addressDictionary objectForKey:@"SubLocality"];
+             NSString *name = [objPlace.addressDictionary objectForKey:@"Name"];
+             strongSelf.recordModel.address = [NSString stringWithFormat:@"%@ %@ %@ %@", city, subLocality, street, name];
+             strongSelf.addressLabel.text = strongSelf.recordModel.address;
+             strongSelf.addressLabel.textColor = _defaultAddressTxtColor;
+         }
+         else
+         {
+             // 地址获取失败
+             strongSelf.recordModel.address = @"";
+             strongSelf.addressLabel.text = @"获取地址失败";
+             strongSelf.addressLabel.textColor = [UIColor redColor];
+         }
+     }];
+}
+
+-(void)locationManager:(CLLocationManager *)manager
+      didFailWithError:(NSError *)error
+{
+    [self showFailedMsgTitle:@"获取坐标失败。" subTitle:error.localizedDescription];
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    textField.text = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    _recordModel.title = textField.text;
+    
+    if (StringNotEmpty(textField.text))
+    {
+        [UtilityFunc viewRemoveShadow:textField];
+    }else{}
+}
+
+#pragma mark - Notifcation
+- (void)handleAppEnterBackground:(NSNotification *)noti
+{
+    [self stopLocationService];
+}
+
+#pragma mark -
+- (void)keyboardPressDone:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
+- (BOOL)isLocationServicesEnabled
+{
+    return ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied));
+}
+
+- (void)switchLocationService
+{
     if ([self isLocationServicesEnabled])
     {
         if (self.locationSwitchBtn.selected)
@@ -153,55 +269,14 @@
     }
 }
 
-- (IBAction)saveBtn:(id)sender
+- (void)stopLocationService
 {
-    
-}
-
-#pragma mark - CLLocationManagerDelegate
--(void)locationManager:(CLLocationManager *)manager
-   didUpdateToLocation:(CLLocation *)newLocation
-          fromLocation:(CLLocation *)oldLocation
-{
-    [self showLocationInfo:newLocation];
-    
-    // 坐标取地址
-    // gps坐标转谷歌坐标
-    CLLocationCoordinate2D objGoogleLoc = [TransformCorrdinate GPSLocToGoogleLoc:newLocation.coordinate];
-    CLLocation *locToGetGeo = [[CLLocation alloc] initWithLatitude:objGoogleLoc.latitude longitude:objGoogleLoc.longitude];
-    _geocoder = [[CLGeocoder alloc] init];
-    [_geocoder reverseGeocodeLocation:locToGetGeo completionHandler:^(NSArray *arrPlaceMarks, NSError *err)
-     {
-         if (arrPlaceMarks && (arrPlaceMarks.count > 0))
-         {
-             CLPlacemark *objPlace = [arrPlaceMarks objectAtIndex:0];
-             
-             NSLog(@"\n\n\naddress\n%@\n\n\n", [objPlace.addressDictionary description]);
-             
-             NSString *city = [objPlace.addressDictionary objectForKey:@"City"];
-             NSString *street = [objPlace.addressDictionary objectForKey:@"Street"];
-             NSString *subLocality = [objPlace.addressDictionary objectForKey:@"SubLocality"];
-             NSString *name = [objPlace.addressDictionary objectForKey:@"Name"];
-             self.addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", city, subLocality, street, name];
-         }
-         else
-         {
-             // 地址获取失败
-             self.addressLabel.text = @"获取地址失败";
-         }
-     }];
-}
-
--(void)locationManager:(CLLocationManager *)manager
-      didFailWithError:(NSError *)error
-{
-    [self showFailedMsgTitle:@"获取坐标失败。" subTitle:error.localizedDescription];
-}
-
-#pragma mark -
-- (BOOL)isLocationServicesEnabled
-{
-    return ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied));
+    if (self.locationSwitchBtn.selected)
+    {
+        [_locationMgr stopUpdatingLocation];
+        self.refreshingTipsLabel.hidden = YES;
+        self.locationSwitchBtn.selected = !self.locationSwitchBtn.selected;
+    }else{}
 }
 
 - (void)showLocationInfo:(CLLocation *)location
@@ -228,6 +303,50 @@
                                 subtitle:subTitle
                                     type:TSMessageNotificationTypeWarning];
 }
+
+- (BOOL)checkRecordDataAndShowInvalidItemStatus
+{
+    BOOL isValid = YES;
+    
+    if (!StringNotEmpty(_recordModel.title))
+    {
+        isValid = NO;
+        [UtilityFunc viewShowRedShadow:self.nameTxtField];
+    }else{}
+//    if (StringNotEmpty(_recordModel.address))
+//    {
+//        isValid = NO;
+//        [UtilityFunc viewShowRedShadow:self.addressLabel];
+//    }else{}
+    if (!_recordModel.location)
+    {
+        isValid = NO;
+        [UtilityFunc viewShowRedShadow:self.locationSwitchBtn];
+    }else{}
+    
+    return isValid;
+}
+
+- (void)setupButtonUI:(UIButton *)btn
+{
+    btn.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
+    btn.layer.cornerRadius = 4.0f;
+    btn.layer.borderWidth = 1.0f;
+    btn.layer.borderColor = [UIColor colorWithWhite:0.85f alpha:1.0f].CGColor;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

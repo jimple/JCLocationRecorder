@@ -12,7 +12,7 @@
 
 @interface GVUserDefaults (AppConfig)
 
-@property (nonatomic, weak) NSDictionary *appVersion2LaunchTimesDic;
+@property (nonatomic, weak) NSDictionary *locationRecordDic;
 
 
 - (void)saveAll;

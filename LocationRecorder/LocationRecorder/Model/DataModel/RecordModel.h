@@ -10,10 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface RecordModel : NSObject
+<NSCoding>
 
-@property (nonatomic, strong) CLLocation *location;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSDate *recordTime;
-@property (nonatomic, strong) NSString *address;
+@property (nonatomic, copy) CLLocation *location;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) NSNumber *recordTime; // timeIntervalSince1970
+@property (nonatomic, copy) NSString *address;
 
 @end

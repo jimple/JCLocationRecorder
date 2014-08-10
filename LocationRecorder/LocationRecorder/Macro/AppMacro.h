@@ -32,8 +32,12 @@
 #pragma mark - Storyboard名
 
 #define MainStoryboard                          @"Main"
-#define TimelineStoryboard                      @"Timeline"
-#define NewsStoryboard                          @"News"
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Notification
+
+#define kNFAppEnterBackground                   @"com.JimpleChen.LocationRecorder.AppEnterBackground"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////

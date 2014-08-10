@@ -144,7 +144,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlW-sY-bkp">
-                                    <rect key="frame" x="52" y="7" width="80" height="40"/>
+                                    <rect key="frame" x="42" y="8" width="100" height="40"/>
                                     <state key="normal" title="刷新坐标">
                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,7 +154,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-0S-4XA">
-                                    <rect key="frame" x="189" y="7" width="80" height="40"/>
+                                    <rect key="frame" x="179" y="8" width="100" height="40"/>
                                     <state key="normal" title="保存坐标">
                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,11 +163,8 @@
                                         <action selector="saveBtn:" destination="hEG-VI-Akv" eventType="touchUpInside" id="IQp-ne-QUG"/>
                                     </connections>
                                 </button>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-Uh-Qtw">
-                                    <rect key="frame" x="19" y="52" width="20" height="20"/>
-                                </activityIndicatorView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="定位服务已开启" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUz-YK-hZW">
-                                    <rect key="frame" x="38" y="51" width="108" height="21"/>
+                                    <rect key="frame" x="27" y="51" width="131" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -193,7 +190,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9MQ-5C-7r2">
                                                     <rect key="frame" x="108" y="6" width="199" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -363,8 +360,8 @@
                         <outlet property="locationSwitchBtn" destination="PlW-sY-bkp" id="acQ-Vp-IjM"/>
                         <outlet property="longitudeLabel" destination="Gxn-GI-jzU" id="MRp-Jx-Xcf"/>
                         <outlet property="nameTxtField" destination="9MQ-5C-7r2" id="9xw-v9-1Lg"/>
-                        <outlet property="refreshingIndicator" destination="s7X-Uh-Qtw" id="hgJ-o2-70n"/>
                         <outlet property="refreshingTipsLabel" destination="sUz-YK-hZW" id="6sf-yv-UiT"/>
+                        <outlet property="saveBtn" destination="aX0-0S-4XA" id="kLL-8V-yPP"/>
                         <outlet property="verticalAccuracyLabel" destination="2Lh-37-qzL" id="nun-Vm-8oL"/>
                     </connections>
                 </tableViewController>
