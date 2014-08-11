@@ -30,7 +30,7 @@
         <scene sceneID="PET-EQ-D8a">
             <objects>
                 <navigationController storyboardIdentifier="SettingNavigationController" id="LK8-op-FlX" customClass="SettingNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" id="Okp-J3-83k"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="Setup" id="Okp-J3-83k"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IHd-FO-2PE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,7 +66,7 @@
         <scene sceneID="VSu-Qo-SdG">
             <objects>
                 <navigationController storyboardIdentifier="LocationNavigationController" id="mRX-uA-ntK" customClass="LocationNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="定位" id="i3e-cY-vKN"/>
+                    <tabBarItem key="tabBarItem" title="定位" image="Position" id="i3e-cY-vKN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EBa-nj-1U8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,7 +83,7 @@
         <scene sceneID="muG-N4-HgZ">
             <objects>
                 <navigationController storyboardIdentifier="MapNavigationController" id="Mpt-Vt-upS" customClass="MapNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="地图" id="36H-pT-ZdL"/>
+                    <tabBarItem key="tabBarItem" title="地图" image="Map" id="36H-pT-ZdL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6bp-cq-eL6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -100,7 +100,7 @@
         <scene sceneID="yIH-ap-GPR">
             <objects>
                 <navigationController storyboardIdentifier="RecordListNavigationController" id="RbR-9p-xXw" customClass="RecordListNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="列表" id="Dfh-xA-toU"/>
+                    <tabBarItem key="tabBarItem" title="列表" image="history" id="Dfh-xA-toU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk0-fG-Gof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -363,6 +363,12 @@
             <point key="canvasLocation" x="920" y="988"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Map" width="29" height="29"/>
+        <image name="Position" width="29" height="29"/>
+        <image name="Setup" width="29" height="29"/>
+        <image name="history" width="29" height="29"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
