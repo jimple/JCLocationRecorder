@@ -36,7 +36,15 @@
     NSMutableDictionary *recordListDic = [[NSMutableDictionary alloc] initWithDictionary:AppConfigInstance.locationRecordDic];
     NSData *recordArrayData = recordListDic[kCurrRecordListKey];
 
-    NSMutableArray *recordArray = [[NSMutableArray alloc] initWithArray:((NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:recordArrayData])];
+    NSMutableArray *recordArray;
+    if (recordArrayData)
+    {
+        recordArray = [[NSMutableArray alloc] initWithArray:((NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:recordArrayData])];
+    }
+    else
+    {
+        recordArray = [[NSMutableArray alloc] init];
+    }
     
     [recordArray addObject:recordModel];
     recordArrayData = [NSKeyedArchiver archivedDataWithRootObject:recordArray];
@@ -45,6 +53,31 @@
     AppConfigInstance.locationRecordDic = recordListDic;
     [AppConfigInstance saveAll];
 }
+
+
+- (NSArray *)allRecords
+{
+    NSMutableArray *recordArray;
+    NSMutableDictionary *recordListDic = [[NSMutableDictionary alloc] initWithDictionary:AppConfigInstance.locationRecordDic];
+    NSData *recordArrayData = recordListDic[kCurrRecordListKey];
+    
+    if (recordArrayData)
+    {
+        recordArray = [[NSMutableArray alloc] initWithArray:((NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:recordArrayData])];
+    }
+    else
+    {
+        recordArray = [[NSMutableArray alloc] init];
+    }
+    
+    return recordArray;
+}
+
+
+
+
+
+
 
 
 

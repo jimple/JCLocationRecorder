@@ -27,7 +27,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *altitudeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) IBOutlet UILabel *datetimeLabel;
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *refreshingIndicator;
 @property (nonatomic, weak) IBOutlet UILabel *refreshingTipsLabel;
 @property (nonatomic, weak) IBOutlet UIButton *locationSwitchBtn;
 @property (nonatomic, weak) IBOutlet UIButton *saveBtn;
@@ -65,7 +64,6 @@
     [self.locationSwitchBtn setTitle:@"开始定位" forState:UIControlStateNormal];
     [self.locationSwitchBtn setTitle:@"停止定位" forState:UIControlStateSelected];
     [self.locationSwitchBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-    self.refreshingIndicator.hidden = YES;
     self.refreshingTipsLabel.hidden = YES;
     [self setupButtonUI:self.locationSwitchBtn];
     [self setupButtonUI:self.saveBtn];
@@ -288,14 +286,14 @@
     float hAccuracy = location.horizontalAccuracy;
     float vAccuracy = location.verticalAccuracy;
     
-    self.latitudeLabel.text = [NSString stringWithFormat:@"%.5f", latitude];
-    self.longitudeLabel.text = [NSString stringWithFormat:@"%.5f", longitude];
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%.6f", latitude];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%.6f", longitude];
     self.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", altitude];
-    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"%.5f", hAccuracy];
+    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"%.6f", hAccuracy];
     self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"%.2f m", vAccuracy];
     
     NSDate *currTime = [NSDate date];
-    self.datetimeLabel.text = [UtilityFunc getStringFromDate:currTime byFormat:@"yyyy-MM-dd HH:mm:ss"];
+    self.datetimeLabel.text = [UtilityFunc getStringFromDate:currTime byFormat:kDatetimeFormat];
 }
 
 - (void)showFailedMsgTitle:(NSString *)title subTitle:(NSString *)subTitle

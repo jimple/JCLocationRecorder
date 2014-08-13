@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202CB199BA2EC00ADD9C6 /* RecordListCell.m */; };
+		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
 		07ADCB51199649F200D36620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB50199649F200D36620 /* main.m */; };
 		07ADCB5D199649F200D36620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5B199649F200D36620 /* Main.storyboard */; };
 		07ADCB5F199649F200D36620 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5E199649F200D36620 /* Images.xcassets */; };
@@ -55,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071202CA199BA2EC00ADD9C6 /* RecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListCell.h; sourceTree = "<group>"; };
+		071202CB199BA2EC00ADD9C6 /* RecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListCell.m; sourceTree = "<group>"; };
+		071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
+		071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		07ADCB4B199649F200D36620 /* LocationRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADCB4F199649F200D36620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07ADCB50199649F200D36620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -340,6 +346,8 @@
 		07ADCB9219964B1600D36620 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				071202CA199BA2EC00ADD9C6 /* RecordListCell.h */,
+				071202CB199BA2EC00ADD9C6 /* RecordListCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -368,6 +376,8 @@
 				07ADCBD81996539D00D36620 /* MapViewController.m */,
 				07ADCBDA199653AD00D36620 /* RecordListViewController.h */,
 				07ADCBDB199653AD00D36620 /* RecordListViewController.m */,
+				071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */,
+				071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */,
 				07ADCBDD199653BF00D36620 /* SettingViewController.h */,
 				07ADCBDE199653BF00D36620 /* SettingViewController.m */,
 			);
@@ -624,6 +634,7 @@
 				07ADCBD01996533F00D36620 /* RecordListNavigationController.m in Sources */,
 				07ADCBCA1996524100D36620 /* LocationNavigationController.m in Sources */,
 				07ADCBD31996534D00D36620 /* SettingNavigationController.m in Sources */,
+				071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */,
 				07ADCBB219964B1600D36620 /* UIButton+SpringTouch.m in Sources */,
 				07ADCBB819964B1600D36620 /* BaseViewController.m in Sources */,
 				07ADCBB019964B1600D36620 /* AppDelegate.m in Sources */,
@@ -634,6 +645,7 @@
 				07ADCBBA19964B1600D36620 /* Localisator.m in Sources */,
 				07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */,
 				07ADCBBB19964B1600D36620 /* JCLoadMoreActivityIndicator.m in Sources */,
+				071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */,
 				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
 				07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */,

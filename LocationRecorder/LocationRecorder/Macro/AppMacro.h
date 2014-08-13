@@ -85,7 +85,7 @@
 #define FLOAT_CornerRadius                      4.0f
 
 
-
+#define kDatetimeFormat                         @"yyyy-MM-dd HH:mm:ss"
 
 
 

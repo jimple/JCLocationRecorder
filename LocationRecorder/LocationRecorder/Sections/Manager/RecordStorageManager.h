@@ -18,6 +18,8 @@
 
 
 - (void)saveRecord:(RecordModel *)recordModel;
+- (NSArray *)allRecords;
+
 
 
 @end
