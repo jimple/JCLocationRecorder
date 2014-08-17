@@ -11,6 +11,10 @@
 		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
 		071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */; };
 		071202D919A0916700ADD9C6 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D819A0916700ADD9C6 /* SettingViewController.m */; };
+		071202DB19A0947C00ADD9C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071202DA19A0947C00ADD9C6 /* MapKit.framework */; };
+		071202E119A095A200ADD9C6 /* EmptyTitlePinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202DE19A095A200ADD9C6 /* EmptyTitlePinView.m */; };
+		071202E219A095A200ADD9C6 /* MapModeNumberPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202E019A095A200ADD9C6 /* MapModeNumberPinView.m */; };
+		071202E519A0960000ADD9C6 /* PosPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202E419A0960000ADD9C6 /* PosPinAnnotation.m */; };
 		07ADCB51199649F200D36620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB50199649F200D36620 /* main.m */; };
 		07ADCB5D199649F200D36620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5B199649F200D36620 /* Main.storyboard */; };
 		07ADCB5F199649F200D36620 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5E199649F200D36620 /* Images.xcassets */; };
@@ -66,6 +70,13 @@
 		071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SGInfoAlert+ShowAlert.m"; sourceTree = "<group>"; };
 		071202D719A0916700ADD9C6 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		071202D819A0916700ADD9C6 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		071202DA19A0947C00ADD9C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		071202DD19A095A200ADD9C6 /* EmptyTitlePinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyTitlePinView.h; sourceTree = "<group>"; };
+		071202DE19A095A200ADD9C6 /* EmptyTitlePinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyTitlePinView.m; sourceTree = "<group>"; };
+		071202DF19A095A200ADD9C6 /* MapModeNumberPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapModeNumberPinView.h; sourceTree = "<group>"; };
+		071202E019A095A200ADD9C6 /* MapModeNumberPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapModeNumberPinView.m; sourceTree = "<group>"; };
+		071202E319A0960000ADD9C6 /* PosPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosPinAnnotation.h; sourceTree = "<group>"; };
+		071202E419A0960000ADD9C6 /* PosPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosPinAnnotation.m; sourceTree = "<group>"; };
 		07ADCB4B199649F200D36620 /* LocationRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADCB4F199649F200D36620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07ADCB50199649F200D36620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				071202DB19A0947C00ADD9C6 /* MapKit.framework in Frameworks */,
 				07ADCBC619964E1B00D36620 /* CoreLocation.framework in Frameworks */,
 				07ADCBC419964E1300D36620 /* UIKit.framework in Frameworks */,
 				07ADCBC219964E0E00D36620 /* CoreGraphics.framework in Frameworks */,
@@ -161,6 +173,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071202DC19A095A200ADD9C6 /* MapPin */ = {
+			isa = PBXGroup;
+			children = (
+				071202DD19A095A200ADD9C6 /* EmptyTitlePinView.h */,
+				071202DE19A095A200ADD9C6 /* EmptyTitlePinView.m */,
+				071202DF19A095A200ADD9C6 /* MapModeNumberPinView.h */,
+				071202E019A095A200ADD9C6 /* MapModeNumberPinView.m */,
+				071202E319A0960000ADD9C6 /* PosPinAnnotation.h */,
+				071202E419A0960000ADD9C6 /* PosPinAnnotation.m */,
+			);
+			path = MapPin;
+			sourceTree = "<group>";
+		};
 		07ADCB42199649F200D36620 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +307,7 @@
 		07ADCB8319964B1600D36620 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				071202DC19A095A200ADD9C6 /* MapPin */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,6 +520,7 @@
 		3E1D23E1D3FC42F39894CDEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				071202DA19A0947C00ADD9C6 /* MapKit.framework */,
 				07ADCBC519964E1B00D36620 /* CoreLocation.framework */,
 				07ADCBC319964E1300D36620 /* UIKit.framework */,
 				07ADCBC119964E0E00D36620 /* CoreGraphics.framework */,
@@ -637,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07ADCBD01996533F00D36620 /* RecordListNavigationController.m in Sources */,
+				071202E119A095A200ADD9C6 /* EmptyTitlePinView.m in Sources */,
 				07ADCBCA1996524100D36620 /* LocationNavigationController.m in Sources */,
 				07ADCBD31996534D00D36620 /* SettingNavigationController.m in Sources */,
 				071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */,
@@ -664,9 +692,11 @@
 				07ADCB51199649F200D36620 /* main.m in Sources */,
 				07ADCBB119964B1600D36620 /* NSTimer+PauseTimer.m in Sources */,
 				07ADCBCD1996532A00D36620 /* MapNavigationController.m in Sources */,
+				071202E519A0960000ADD9C6 /* PosPinAnnotation.m in Sources */,
 				07ADCBBC19964B1600D36620 /* UIScrollView+JCLoadMoreIndicator.m in Sources */,
 				07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */,
 				07ADCBD91996539D00D36620 /* MapViewController.m in Sources */,
+				071202E219A095A200ADD9C6 /* MapModeNumberPinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

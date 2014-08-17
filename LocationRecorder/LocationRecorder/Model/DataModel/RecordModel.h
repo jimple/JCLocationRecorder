@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSNumber *recordTime; // timeIntervalSince1970
 @property (nonatomic, copy) NSString *address;
 
+- (CLLocationCoordinate2D)googleCoordinateFromLocation;
+
 @end
