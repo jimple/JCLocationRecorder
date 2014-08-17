@@ -36,7 +36,7 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
-    [self refreshTable];
+//    [self refreshTable];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,9 +54,9 @@
 }
 */
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     
     [self refreshTable];
 }

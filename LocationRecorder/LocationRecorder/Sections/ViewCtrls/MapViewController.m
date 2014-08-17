@@ -45,7 +45,7 @@
     _recordArray = @[];
     _annotationsArray = [[NSMutableArray alloc] init];
     
-    [self reloadData];
+//    [self reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +66,13 @@
 - (void)dealloc
 {
     _mapView.delegate = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self reloadData];
 }
 
 - (IBAction)refreshBtn:(id)sender
@@ -243,7 +250,7 @@
         NSInteger iIndex = 0;
         for (RecordModel *recordModel in _recordArray)
         {
-            NSString *detail = [NSString stringWithFormat:@"GPS:%.4f - %.4f 高度 %.2f", recordModel.location.coordinate.longitude, recordModel.location.coordinate.latitude, recordModel.location.altitude];
+            NSString *detail = [NSString stringWithFormat:@"%.4f,%.4f;海拔%.2f(±%.2fm)", recordModel.location.coordinate.longitude, recordModel.location.coordinate.latitude, recordModel.location.altitude, recordModel.location.verticalAccuracy];
             [self addPin:recordModel.location.coordinate title:recordModel.title subTitle:detail index:iIndex];
             
             iIndex++;
