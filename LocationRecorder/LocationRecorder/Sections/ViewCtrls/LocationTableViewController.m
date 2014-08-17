@@ -12,6 +12,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RecordModel.h"
 #import "RecordStorageManager.h"
+#import "SIAlertView.h"
+#import "SGInfoAlert+ShowAlert.h"
 
 @interface LocationTableViewController ()
 <
@@ -35,6 +37,7 @@
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) RecordModel *recordModel;
 @property (nonatomic, strong) UIColor *defaultAddressTxtColor;
+@property (nonatomic, copy) NSString *lastSavedRecordTitle;
 
 @end
 
@@ -49,10 +52,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.title = @"定位";
+    
     _locationMgr = [[CLLocationManager alloc] init];
     _locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
     _locationMgr.delegate = self;
     _recordModel = [[RecordModel alloc] init];
+    _lastSavedRecordTitle = @"";
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleAppEnterBackground:)
@@ -156,7 +162,28 @@
 {
     if ([self checkRecordDataAndShowInvalidItemStatus])
     {
-        [RecordStorageManagerObj saveRecord:_recordModel];
+        if ([_lastSavedRecordTitle isEqualToString:_recordModel.title])
+        {// 为避免误触碰保存按钮，所以如果刚刚保存了同名记录，则先提示后保存。
+            NSString *tips = [NSString stringWithFormat:@"名称 “%@” 与上一次保存时同名，是否继续保存？", _lastSavedRecordTitle];
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"提示" andMessage:tips];
+            alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+            @weakify(self);
+            [alertView addButtonWithTitle:@"取消"
+                                     type:SIAlertViewButtonTypeCancel
+                                  handler:^(SIAlertView *alertView) {
+                                  }];
+            [alertView addButtonWithTitle:@"保存"
+                                     type:SIAlertViewButtonTypeDefault
+                                  handler:^(SIAlertView *alertView) {
+                                      @strongify(self);
+                                      [self saveCurrRecord];
+                                  }];
+            [alertView show];
+        }
+        else
+        {
+            [self saveCurrRecord];
+        }
     }
     else
     {
@@ -332,8 +359,17 @@
     btn.layer.cornerRadius = 4.0f;
     btn.layer.borderWidth = 1.0f;
     btn.layer.borderColor = [UIColor colorWithWhite:0.85f alpha:1.0f].CGColor;
+    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
 }
 
+- (void)saveCurrRecord
+{
+    _lastSavedRecordTitle = _recordModel.title;
+    [RecordStorageManagerObj saveRecord:_recordModel];
+    
+    [SGInfoAlert showAlert:@"保存成功" duration:0.3f inView:self.view];
+}
 
 
 

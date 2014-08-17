@@ -110,7 +110,7 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect,
     [UIView setAnimationDuration:(fDuration >= 0.1f) ? fDuration : 0.1f];
     alert.alpha = 1.0;
     [UIView commitAnimations];
-    [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:2.5];
+    [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:fDuration+0.1f];
     //[alert release];
 }
 

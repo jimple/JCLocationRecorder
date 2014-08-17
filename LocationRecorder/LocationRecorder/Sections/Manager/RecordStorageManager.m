@@ -54,6 +54,20 @@
     [AppConfigInstance saveAll];
 }
 
+- (void)resetRecords:(NSArray *)newRecordArray
+{
+    NSMutableDictionary *recordListDic = [[NSMutableDictionary alloc] initWithDictionary:AppConfigInstance.locationRecordDic];
+    
+    if (!newRecordArray)
+    {
+        newRecordArray = [[NSArray alloc] init];
+    }else{}
+    NSData *recordArrayData = [NSKeyedArchiver archivedDataWithRootObject:newRecordArray];
+    recordListDic[kCurrRecordListKey] = recordArrayData;
+    
+    AppConfigInstance.locationRecordDic = recordListDic;
+    [AppConfigInstance saveAll];
+}
 
 - (NSArray *)allRecords
 {

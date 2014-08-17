@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"列表";
+    
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
@@ -50,6 +52,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self refreshTable];
+}
 
 #pragma mark - Action
 - (IBAction)refreshList:(id)sender
@@ -77,29 +86,32 @@
     cell.titleLabel.text = record.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%.6f  %.6f", record.location.coordinate.longitude, record.location.coordinate.latitude];
     cell.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.altitude];
+    cell.dateTimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:@"yyyy-MM-dd hh:mm:ss"];
     
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        
+        [_recordArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [RecordStorageManagerObj resetRecords:_recordArray];
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
 
 /*
  // Override to support rearranging the table view.
@@ -122,6 +134,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     [self performSegueWithIdentifier:@"SegueRecordDetail" sender:@(indexPath.row)];
 }
 
@@ -145,6 +159,25 @@
     _tableView.separatorStyle = (_recordArray.count > 0) ? UITableViewCellSeparatorStyleSingleLine : UITableViewCellSeparatorStyleNone;
     [_tableView reloadData];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

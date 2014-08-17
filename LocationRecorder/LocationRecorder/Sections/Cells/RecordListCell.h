@@ -16,6 +16,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *locationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *altitudeLabel;
-
+@property (nonatomic, weak) IBOutlet UILabel *dateTimeLabel;
 
 @end

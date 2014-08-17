@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202CB199BA2EC00ADD9C6 /* RecordListCell.m */; };
 		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
+		071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */; };
 		07ADCB51199649F200D36620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB50199649F200D36620 /* main.m */; };
 		07ADCB5D199649F200D36620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5B199649F200D36620 /* Main.storyboard */; };
 		07ADCB5F199649F200D36620 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5E199649F200D36620 /* Images.xcassets */; };
@@ -61,6 +62,8 @@
 		071202CB199BA2EC00ADD9C6 /* RecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListCell.m; sourceTree = "<group>"; };
 		071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
+		071202D319A089C100ADD9C6 /* SGInfoAlert+ShowAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SGInfoAlert+ShowAlert.h"; sourceTree = "<group>"; };
+		071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SGInfoAlert+ShowAlert.m"; sourceTree = "<group>"; };
 		07ADCB4B199649F200D36620 /* LocationRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADCB4F199649F200D36620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07ADCB50199649F200D36620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 		07ADCB7819964B1600D36620 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				071202D319A089C100ADD9C6 /* SGInfoAlert+ShowAlert.h */,
+				071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */,
 				07ADCB7919964B1600D36620 /* NSTimer+PauseTimer.h */,
 				07ADCB7A19964B1600D36620 /* NSTimer+PauseTimer.m */,
 				07ADCB7B19964B1600D36620 /* UIButton+SpringTouch.h */,
@@ -649,6 +654,7 @@
 				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
 				07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */,
+				071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */,
 				07ADCBBD19964B1600D36620 /* OpenUDID.m in Sources */,
 				07ADCBE619970F8300D36620 /* RecordModel.m in Sources */,
 				07ADCBBF19964B1600D36620 /* SGInfoAlert.m in Sources */,

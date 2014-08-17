@@ -12,7 +12,7 @@
 
 + (CGFloat)cellHeight
 {
-    return 80.0f;
+    return 95.0f;
 }
 
 - (void)awakeFromNib {

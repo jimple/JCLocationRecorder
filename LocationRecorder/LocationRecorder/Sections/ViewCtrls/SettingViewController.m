@@ -22,6 +22,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    self.title = @"设置";
+    
 }
 
 /*
