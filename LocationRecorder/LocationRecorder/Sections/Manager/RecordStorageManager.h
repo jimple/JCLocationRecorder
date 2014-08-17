@@ -20,7 +20,7 @@
 - (void)saveRecord:(RecordModel *)recordModel;
 - (void)resetRecords:(NSArray *)newRecordArray;
 - (NSArray *)allRecords;
-
+- (void)removeAllRecords;
 
 
 @end

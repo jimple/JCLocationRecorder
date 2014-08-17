@@ -10,6 +10,7 @@
 		071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202CB199BA2EC00ADD9C6 /* RecordListCell.m */; };
 		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
 		071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */; };
+		071202D919A0916700ADD9C6 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D819A0916700ADD9C6 /* SettingViewController.m */; };
 		07ADCB51199649F200D36620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB50199649F200D36620 /* main.m */; };
 		07ADCB5D199649F200D36620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5B199649F200D36620 /* Main.storyboard */; };
 		07ADCB5F199649F200D36620 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5E199649F200D36620 /* Images.xcassets */; };
@@ -38,7 +39,6 @@
 		07ADCBD31996534D00D36620 /* SettingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBD21996534D00D36620 /* SettingNavigationController.m */; };
 		07ADCBD91996539D00D36620 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBD81996539D00D36620 /* MapViewController.m */; };
 		07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBDB199653AD00D36620 /* RecordListViewController.m */; };
-		07ADCBDF199653BF00D36620 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBDE199653BF00D36620 /* SettingViewController.m */; };
 		07ADCBE31997064D00D36620 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE21997064D00D36620 /* LocationTableViewController.m */; };
 		07ADCBE619970F8300D36620 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBE519970F8300D36620 /* RecordModel.m */; };
 		07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */; };
@@ -64,6 +64,8 @@
 		071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		071202D319A089C100ADD9C6 /* SGInfoAlert+ShowAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SGInfoAlert+ShowAlert.h"; sourceTree = "<group>"; };
 		071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SGInfoAlert+ShowAlert.m"; sourceTree = "<group>"; };
+		071202D719A0916700ADD9C6 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		071202D819A0916700ADD9C6 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		07ADCB4B199649F200D36620 /* LocationRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADCB4F199649F200D36620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07ADCB50199649F200D36620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,8 +125,6 @@
 		07ADCBD81996539D00D36620 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		07ADCBDA199653AD00D36620 /* RecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListViewController.h; sourceTree = "<group>"; };
 		07ADCBDB199653AD00D36620 /* RecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListViewController.m; sourceTree = "<group>"; };
-		07ADCBDD199653BF00D36620 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		07ADCBDE199653BF00D36620 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		07ADCBE11997064D00D36620 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
 		07ADCBE21997064D00D36620 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
 		07ADCBE419970F8300D36620 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
@@ -383,8 +383,8 @@
 				07ADCBDB199653AD00D36620 /* RecordListViewController.m */,
 				071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */,
 				071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */,
-				07ADCBDD199653BF00D36620 /* SettingViewController.h */,
-				07ADCBDE199653BF00D36620 /* SettingViewController.m */,
+				071202D719A0916700ADD9C6 /* SettingViewController.h */,
+				071202D819A0916700ADD9C6 /* SettingViewController.m */,
 			);
 			path = ViewCtrls;
 			sourceTree = "<group>";
@@ -650,6 +650,7 @@
 				07ADCBBA19964B1600D36620 /* Localisator.m in Sources */,
 				07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */,
 				07ADCBBB19964B1600D36620 /* JCLoadMoreActivityIndicator.m in Sources */,
+				071202D919A0916700ADD9C6 /* SettingViewController.m in Sources */,
 				071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */,
 				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
@@ -666,7 +667,6 @@
 				07ADCBBC19964B1600D36620 /* UIScrollView+JCLoadMoreIndicator.m in Sources */,
 				07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */,
 				07ADCBD91996539D00D36620 /* MapViewController.m in Sources */,
-				07ADCBDF199653BF00D36620 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -87,6 +87,10 @@
     return recordArray;
 }
 
+- (void)removeAllRecords
+{
+    [self resetRecords:[[NSArray alloc] init]];
+}
 
 
 

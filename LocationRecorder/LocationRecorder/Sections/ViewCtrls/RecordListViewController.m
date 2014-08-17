@@ -11,6 +11,7 @@
 #import "RecordStorageManager.h"
 #import "RecordModel.h"
 #import "RecordDetailViewController.h"
+#import "SGInfoAlert+ShowAlert.h"
 
 @interface RecordListViewController ()
 <
@@ -64,6 +65,12 @@
 - (IBAction)refreshList:(id)sender
 {
     [self refreshTable];
+    
+    if (_recordArray.count > 0)
+    {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }else{}
+    [SGInfoAlert showAlert:@"刷新完成" duration:0.3f inView:self.view];
 }
 
 #pragma mark - Table view data source
@@ -82,11 +89,13 @@
 {
     RecordListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecordListCell" forIndexPath:indexPath];
     
-    RecordModel *record = _recordArray[indexPath.row];
+    NSUInteger index = [self arrayIndexFromTableIndexPath:indexPath];
+    RecordModel *record = _recordArray[index];
     cell.titleLabel.text = record.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%.6f  %.6f", record.location.coordinate.longitude, record.location.coordinate.latitude];
     cell.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.altitude];
     cell.dateTimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:@"yyyy-MM-dd hh:mm:ss"];
+    cell.indexLabel.text = [NSString stringWithFormat:@"%d", index+1];
     
     return cell;
 }
@@ -103,7 +112,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         
-        [_recordArray removeObjectAtIndex:indexPath.row];
+        [_recordArray removeObjectAtIndex:[self arrayIndexFromTableIndexPath:indexPath]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [RecordStorageManagerObj resetRecords:_recordArray];
@@ -136,7 +145,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    [self performSegueWithIdentifier:@"SegueRecordDetail" sender:@(indexPath.row)];
+    [self performSegueWithIdentifier:@"SegueRecordDetail" sender:@([self arrayIndexFromTableIndexPath:indexPath])];
 }
 
 #pragma mark -
@@ -160,6 +169,13 @@
     [_tableView reloadData];
 }
 
+- (NSUInteger)arrayIndexFromTableIndexPath:(NSIndexPath *)indexPath
+{
+    APP_ASSERT(_recordArray && indexPath);
+    
+    // 逆序显示
+    return (_recordArray.count - indexPath.row - 1);
+}
 
 
 

@@ -2,12 +2,12 @@
 //  SettingViewController.h
 //  LocationRecorder
 //
-//  Created by jimple on 14/8/9.
+//  Created by jimple on 14/8/17.
 //  Copyright (c) 2014年 JimpleChen. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface SettingViewController : BaseViewController
+@interface SettingViewController : UITableViewController
 
 @end
