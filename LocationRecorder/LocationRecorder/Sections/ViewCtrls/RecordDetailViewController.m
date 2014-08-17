@@ -44,8 +44,8 @@
     self.titleLabel.text = record.title;
     self.latitudeLabel.text = [NSString stringWithFormat:@"%.6f", record.location.coordinate.latitude];
     self.longitudeLabel.text = [NSString stringWithFormat:@"%.6f", record.location.coordinate.longitude];
-    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"%.6f", record.location.horizontalAccuracy];
-    self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.verticalAccuracy];
+    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"±%.2f m", record.location.horizontalAccuracy];
+    self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"±%.2f m", record.location.verticalAccuracy];
     self.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.altitude];
     self.addressLabel.text = record.address;
     self.datetimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:kDatetimeFormat] ;

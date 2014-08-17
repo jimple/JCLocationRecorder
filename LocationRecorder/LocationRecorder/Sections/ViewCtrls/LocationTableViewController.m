@@ -316,8 +316,8 @@
     self.latitudeLabel.text = [NSString stringWithFormat:@"%.6f", latitude];
     self.longitudeLabel.text = [NSString stringWithFormat:@"%.6f", longitude];
     self.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", altitude];
-    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"%.6f", hAccuracy];
-    self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"%.2f m", vAccuracy];
+    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"±%.2f m", hAccuracy];
+    self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"±%.2f m", vAccuracy];
     
     NSDate *currTime = [NSDate date];
     self.datetimeLabel.text = [UtilityFunc getStringFromDate:currTime byFormat:kDatetimeFormat];

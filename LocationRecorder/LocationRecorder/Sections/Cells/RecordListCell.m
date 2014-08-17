@@ -22,6 +22,8 @@
     self.indexLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.indexLabel.layer.borderWidth = 0.5f;
     self.indexLabel.backgroundColor = [UIColor clearColor];
+    
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

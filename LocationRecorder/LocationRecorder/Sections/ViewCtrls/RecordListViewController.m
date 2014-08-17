@@ -93,9 +93,11 @@
     RecordModel *record = _recordArray[index];
     cell.titleLabel.text = record.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%.6f  %.6f", record.location.coordinate.longitude, record.location.coordinate.latitude];
-    cell.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.altitude];
+    cell.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m (±%.2fm)", record.location.altitude, record.location.verticalAccuracy];
     cell.dateTimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:@"yyyy-MM-dd hh:mm:ss"];
     cell.indexLabel.text = [NSString stringWithFormat:@"%d", index+1];
+    
+    cell.imageView.image = [UIImage imageNamed:@"DefaultImg"];
     
     return cell;
 }
