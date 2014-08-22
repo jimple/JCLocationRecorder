@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056C31A019A7AD6800D9E6B4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C319F19A7AD6800D9E6B4 /* MessageUI.framework */; };
 		071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202CB199BA2EC00ADD9C6 /* RecordListCell.m */; };
 		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
 		071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		056C319F19A7AD6800D9E6B4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		071202CA199BA2EC00ADD9C6 /* RecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListCell.h; sourceTree = "<group>"; };
 		071202CB199BA2EC00ADD9C6 /* RecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListCell.m; sourceTree = "<group>"; };
 		071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056C31A019A7AD6800D9E6B4 /* MessageUI.framework in Frameworks */,
 				071202DB19A0947C00ADD9C6 /* MapKit.framework in Frameworks */,
 				07ADCBC619964E1B00D36620 /* CoreLocation.framework in Frameworks */,
 				07ADCBC419964E1300D36620 /* UIKit.framework in Frameworks */,
@@ -520,6 +523,7 @@
 		3E1D23E1D3FC42F39894CDEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				056C319F19A7AD6800D9E6B4 /* MessageUI.framework */,
 				071202DA19A0947C00ADD9C6 /* MapKit.framework */,
 				07ADCBC519964E1B00D36620 /* CoreLocation.framework */,
 				07ADCBC319964E1300D36620 /* UIKit.framework */,

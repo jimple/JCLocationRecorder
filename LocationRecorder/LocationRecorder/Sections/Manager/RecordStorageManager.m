@@ -92,8 +92,11 @@
     [self resetRecords:[[NSArray alloc] init]];
 }
 
-
-
+//利用所有点位信息记录生成KML文件
+- (NSString *)createKMLfileFromRecords
+{
+    return @"points.kml";
+}
 
 
 

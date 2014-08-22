@@ -5,6 +5,8 @@
 //  Created by jimple on 14/8/17.
 //  Copyright (c) 2014年 JimpleChen. All rights reserved.
 //
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MessageUI.h>
 
 #import "SettingViewController.h"
 #import "SIAlertView.h"
@@ -126,7 +128,48 @@
 }
 
 
+- (IBAction)sendAllRecordByEmail:(id)sender
+{
+    NSString *_kmlFilename = [RecordStorageManagerObj createKMLfileFromRecords];
+    
+    NSString *kmlData = [[NSString alloc]initWithContentsOfFile:_kmlFilename encoding:NSUTF8StringEncoding error:nil];
+    if (kmlData)
+    {
+        MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+        if(mailCompose)
+        {
+            //设置代理
+            [mailCompose setMailComposeDelegate:self];
+            
+            NSArray *toAddress = [NSArray arrayWithObject:@""];
+            NSArray *ccAddress = [NSArray arrayWithObject:@""];;
+            NSString *emailBody = @"<H1>点位信息KML文件</H1>";
+            
+            //设置收件人
+            [mailCompose setToRecipients:toAddress];
+            //设置抄送人
+            [mailCompose setCcRecipients:ccAddress];
+            //设置邮件内容
+            [mailCompose setMessageBody:emailBody isHTML:YES];
+            
+            //设置邮件主题
+            [mailCompose setSubject:@"这里是主题"];
+            //设置邮件附件{mimeType:文件格式|fileName:文件名}
+            NSData* pData = [[NSData alloc]initWithContentsOfFile:_kmlFilename];
+            [mailCompose addAttachmentData:pData mimeType:@"txt" fileName:@"points.kml"];
+            //设置邮件视图在当前视图上显示方式
+            [self presentModalViewController:mailCompose animated:YES];
+        }
+    }
+    
+    [SGInfoAlert showAlert:@"邮件发送成功" duration:0.5f inView:self.view];
+    
+    //如何删除已经发送成功的KML文件？
 
+    
+    
+    
+}
 
 
 
