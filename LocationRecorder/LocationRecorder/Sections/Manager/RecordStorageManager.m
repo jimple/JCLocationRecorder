@@ -8,7 +8,8 @@
 
 #import "RecordStorageManager.h"
 #import "GVUserDefaults+AppConfig.h"
-
+#import "RecordModel.h"
+#import "KML.h"
 
 #define kCurrRecordListKey                  @"CurrRecordList"
 
@@ -92,15 +93,78 @@
     [self resetRecords:[[NSArray alloc] init]];
 }
 
+
+
 //利用所有点位信息记录生成KML文件
 - (NSString *)createKMLfileFromRecords
 {
-    return @"points.kml";
+    NSMutableArray *recordPtns = [[NSMutableArray alloc] initWithArray:[self allRecords]];
+    if (recordPtns)
+    {
+        KMLRoot *root = [KMLRoot new];
+        
+        KMLDocument *doc = [KMLDocument new];
+        doc.name = @"点位信息列表";
+        root.feature = doc;
+        
+        //增加点信息
+        for (RecordModel *recordModel in recordPtns)
+        {
+            KMLPlacemark *placemark = [self placemarkWithName:recordModel];
+            [doc addFeature:placemark];
+        }
+        
+        //添加线信息
+        
+        
+        //写入文件
+        NSString *kmlString = root.kml;
+        NSError *error;
+        NSString *filePath = [self kmlFilePath];
+        if (![kmlString writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error])
+        {
+            if (error)
+            {
+                NSLog(@"error, %@", error);
+            }
+            return nil;
+        }
+        
+        return filePath;
+    }
+    else{return nil;}
 }
 
+//单点坐标信息加入
+- (KMLPlacemark *)placemarkWithName:(RecordModel *)recordModel
+{
+    KMLPlacemark *placemark = [KMLPlacemark new];
+    placemark.name = recordModel.title;                //点名
+    placemark.descriptionValue = recordModel.address;  //地址
+    
+    KMLPoint *point = [KMLPoint new];
+    placemark.geometry = point;
+    
+    KMLCoordinate *coordinate = [KMLCoordinate new];
+    coordinate.latitude = recordModel.location.coordinate.latitude;
+    coordinate.longitude = recordModel.location.coordinate.longitude;
+    point.coordinate = coordinate;
+    
+    return placemark;
+}
 
-
-
+//KML文件名
+- (NSString *)kmlFilePath
+{
+    //用日期来命名
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.timeStyle = NSDateFormatterFullStyle;
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *fileName = [NSString stringWithFormat:@"log_%@.kml", dateString];
+    return [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+}
 
 
 

@@ -144,7 +144,7 @@
             
             NSArray *toAddress = [NSArray arrayWithObject:@""];
             NSArray *ccAddress = [NSArray arrayWithObject:@""];;
-            NSString *emailBody = @"<H2>点位信息KML文件,请查阅附件。</H2>";
+            NSString *emailBody = @"<H3>点位信息KML文件,请查阅附件。</H3>";
             
             //设置收件人
             [mailCompose setToRecipients:toAddress];
@@ -157,7 +157,7 @@
             [mailCompose setSubject:@"点位信息KML文件"];
             //设置邮件附件{mimeType:文件格式|fileName:文件名}
             NSData* pData = [[NSData alloc]initWithContentsOfFile:_kmlFilename];
-            [mailCompose addAttachmentData:pData mimeType:@"txt" fileName:@"points.kml"];
+            [mailCompose addAttachmentData:pData mimeType:@"kml" fileName:_kmlFilename];
             //设置邮件视图在当前视图上显示方式
             [self presentViewController:mailCompose animated:YES completion:NULL];
         }
