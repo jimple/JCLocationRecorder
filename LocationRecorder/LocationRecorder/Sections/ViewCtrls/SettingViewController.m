@@ -8,6 +8,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MessageUI.h>
 
+#import "TSMessage.h"
 #import "SettingViewController.h"
 #import "SIAlertView.h"
 #import "RecordStorageManager.h"
@@ -45,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return 2;
 }
 
 /*
@@ -143,7 +144,7 @@
             
             NSArray *toAddress = [NSArray arrayWithObject:@""];
             NSArray *ccAddress = [NSArray arrayWithObject:@""];;
-            NSString *emailBody = @"<H1>点位信息KML文件</H1>";
+            NSString *emailBody = @"<H2>点位信息KML文件,请查阅附件。</H2>";
             
             //设置收件人
             [mailCompose setToRecipients:toAddress];
@@ -153,16 +154,20 @@
             [mailCompose setMessageBody:emailBody isHTML:YES];
             
             //设置邮件主题
-            [mailCompose setSubject:@"这里是主题"];
+            [mailCompose setSubject:@"点位信息KML文件"];
             //设置邮件附件{mimeType:文件格式|fileName:文件名}
             NSData* pData = [[NSData alloc]initWithContentsOfFile:_kmlFilename];
             [mailCompose addAttachmentData:pData mimeType:@"txt" fileName:@"points.kml"];
             //设置邮件视图在当前视图上显示方式
-            [self presentModalViewController:mailCompose animated:YES];
+            [self presentViewController:mailCompose animated:YES completion:NULL];
         }
     }
+    else
+    {
+        [self showFailedMsgTitle:@"邮件发送失败" subTitle:@"请检查点位信息列表是否为空。"];
+    }
     
-    [SGInfoAlert showAlert:@"邮件发送成功" duration:0.5f inView:self.view];
+    
     
     //如何删除已经发送成功的KML文件？
 
@@ -172,10 +177,35 @@
 }
 
 
+- (void)showFailedMsgTitle:(NSString *)title subTitle:(NSString *)subTitle
+{
+    [TSMessage showNotificationWithTitle:title
+                                subtitle:subTitle
+                                    type:TSMessageNotificationTypeWarning];
+}
 
 
-
-
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            [SGInfoAlert showAlert:@"邮件发送取消" duration:0.5f inView:self.view];
+            break;
+        case MFMailComposeResultSaved:
+            [SGInfoAlert showAlert:@"邮件保存成功" duration:0.5f inView:self.view];
+            break;
+        case MFMailComposeResultSent:
+            [SGInfoAlert showAlert:@"邮件发送成功" duration:0.5f inView:self.view];
+            break;
+        case MFMailComposeResultFailed:
+            [SGInfoAlert showAlert:@"邮件发送失败" duration:0.5f inView:self.view];
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 
