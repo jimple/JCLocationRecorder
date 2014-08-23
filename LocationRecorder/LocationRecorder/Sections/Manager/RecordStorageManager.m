@@ -107,15 +107,16 @@
         doc.name = @"点位信息列表";
         root.feature = doc;
         
-        //增加点信息
+        //添加点信息
         for (RecordModel *recordModel in recordPtns)
         {
-            KMLPlacemark *placemark = [self placemarkWithName:recordModel];
+            KMLPlacemark *placemark = [self addSinglePlacemark:recordModel];
             [doc addFeature:placemark];
         }
         
         //添加线信息
-        
+        KMLPlacemark *line = [self addLines:recordPtns];
+        [doc addFeature:line];
         
         //写入文件
         NSString *kmlString = root.kml;
@@ -130,13 +131,14 @@
             return nil;
         }
         
+        //NSLog(@" %@", filePath);
         return filePath;
     }
     else{return nil;}
 }
 
-//单点坐标信息加入
-- (KMLPlacemark *)placemarkWithName:(RecordModel *)recordModel
+//添加单点坐标信息
+- (KMLPlacemark *)addSinglePlacemark:(RecordModel *)recordModel
 {
     KMLPlacemark *placemark = [KMLPlacemark new];
     placemark.name = recordModel.title;                //点名
@@ -149,6 +151,35 @@
     coordinate.latitude = recordModel.location.coordinate.latitude;
     coordinate.longitude = recordModel.location.coordinate.longitude;
     point.coordinate = coordinate;
+    
+    return placemark;
+}
+
+//添加线信息
+- (KMLPlacemark *)addLines:(NSMutableArray *) recordPtns
+{
+    KMLPlacemark *placemark = [KMLPlacemark new];
+    placemark.name = @"路线信息";
+    
+    __block KMLLineString *lineString = [KMLLineString new];
+    placemark.geometry = lineString;
+    
+    [recordPtns enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         RecordModel *trackPoint = (RecordModel *)obj;
+         KMLCoordinate *coordinate = [KMLCoordinate new];
+         coordinate.latitude = trackPoint.location.coordinate.latitude;
+         coordinate.longitude = trackPoint.location.coordinate.longitude;
+         [lineString addCoordinate:coordinate];
+     }];
+    
+    KMLStyle *style = [KMLStyle new];
+    [placemark addStyleSelector:style];
+    
+    KMLLineStyle *lineStyle = [KMLLineStyle new];
+    style.lineStyle = lineStyle;
+    lineStyle.width = 5;
+    lineStyle.UIColor = [UIColor blueColor];
     
     return placemark;
 }
