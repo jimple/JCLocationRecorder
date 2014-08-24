@@ -43,6 +43,8 @@ install_resource()
 }
 install_resource "NZAlertView/NZAlertView/NZAlertView-Icons.bundle"
 install_resource "NZAlertView/NZAlertView/Views/NZAlertView.xib"
+install_resource "QBImagePickerController/Pod/Assets/en.lproj"
+install_resource "QBImagePickerController/Pod/Assets/ja.lproj"
 install_resource "SIAlertView/SIAlertView/SIAlertView.bundle"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png"

@@ -15,12 +15,33 @@
 
 
 + (RecordStorageManager *)sharedInstance;
++ (NSString *)imgFolderPath;
 
+// 把图片保存到图片目录下，返回文件名称
++ (NSString *)saveImgToFile:(UIImage *)image;
+
+// 删除整个图片目录
++ (BOOL)clearImgFolder;
+
+// 缩略图文件名
++ (NSString *)thumbFileNameByFileName:(NSString *)fileName;
+
+
+
+#pragma mark -
 
 - (void)saveRecord:(RecordModel *)recordModel;
 - (void)resetRecords:(NSArray *)newRecordArray;
 - (NSArray *)allRecords;
+
+// 删除数据同时删除图片文件目录
 - (void)removeAllRecords;
+
+
+
+
+
+
 
 
 @end

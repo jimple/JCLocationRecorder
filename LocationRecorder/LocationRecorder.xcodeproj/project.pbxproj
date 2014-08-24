@@ -48,6 +48,9 @@
 		07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */; };
 		07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */; };
 		07ADCBF21997A73D00D36620 /* RecordStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBF11997A73D00D36620 /* RecordStorageManager.m */; };
+		07BB314B19A9CF3A00EF3707 /* RecordMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */; };
+		07BB314E19A9D30200EF3707 /* RecordImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB314D19A9D30200EF3707 /* RecordImgCell.m */; };
+		07BB315119A9DC7100EF3707 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */; };
 		EA50E1065A344D04BCFFC072 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F288FC416A8E4C36906D57B3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +149,12 @@
 		07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDismissKeyboardViewHelper.m; sourceTree = "<group>"; };
 		07ADCBF01997A73D00D36620 /* RecordStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStorageManager.h; sourceTree = "<group>"; };
 		07ADCBF11997A73D00D36620 /* RecordStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStorageManager.m; sourceTree = "<group>"; };
+		07BB314919A9CF3900EF3707 /* RecordMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordMediaViewController.h; sourceTree = "<group>"; };
+		07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordMediaViewController.m; sourceTree = "<group>"; };
+		07BB314C19A9D30200EF3707 /* RecordImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordImgCell.h; sourceTree = "<group>"; };
+		07BB314D19A9D30200EF3707 /* RecordImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordImgCell.m; sourceTree = "<group>"; };
+		07BB314F19A9DC7100EF3707 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		F1DE7F0032174374B835218D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F288FC416A8E4C36906D57B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -379,6 +388,8 @@
 			children = (
 				071202CA199BA2EC00ADD9C6 /* RecordListCell.h */,
 				071202CB199BA2EC00ADD9C6 /* RecordListCell.m */,
+				07BB314C19A9D30200EF3707 /* RecordImgCell.h */,
+				07BB314D19A9D30200EF3707 /* RecordImgCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,6 +420,10 @@
 				07ADCBDB199653AD00D36620 /* RecordListViewController.m */,
 				071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */,
 				071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */,
+				07BB314919A9CF3900EF3707 /* RecordMediaViewController.h */,
+				07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */,
+				07BB314F19A9DC7100EF3707 /* PhotoDetailViewController.h */,
+				07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */,
 				071202D719A0916700ADD9C6 /* SettingViewController.h */,
 				071202D819A0916700ADD9C6 /* SettingViewController.m */,
 			);
@@ -679,8 +694,10 @@
 				07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */,
 				07ADCBBB19964B1600D36620 /* JCLoadMoreActivityIndicator.m in Sources */,
 				071202D919A0916700ADD9C6 /* SettingViewController.m in Sources */,
+				07BB315119A9DC7100EF3707 /* PhotoDetailViewController.m in Sources */,
 				071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */,
 				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
+				07BB314E19A9D30200EF3707 /* RecordImgCell.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
 				07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */,
 				071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */,
@@ -696,6 +713,7 @@
 				07ADCBBC19964B1600D36620 /* UIScrollView+JCLoadMoreIndicator.m in Sources */,
 				07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */,
 				07ADCBD91996539D00D36620 /* MapViewController.m in Sources */,
+				07BB314B19A9CF3A00EF3707 /* RecordMediaViewController.m in Sources */,
 				071202E219A095A200ADD9C6 /* MapModeNumberPinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

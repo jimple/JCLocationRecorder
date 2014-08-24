@@ -16,6 +16,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) NSNumber *recordTime; // timeIntervalSince1970
 @property (nonatomic, copy) NSString *address;
+@property (nonatomic, strong) NSArray *imgFileNameArray;
+
 
 - (CLLocationCoordinate2D)googleCoordinateFromLocation;
 

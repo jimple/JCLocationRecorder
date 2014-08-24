@@ -7,9 +7,19 @@
 //
 
 #import "RecordDetailViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "RecordModel.h"
+#import "QBImagePickerController.h"
+#import "RecordStorageManager.h"
+#import "SGInfoAlert+ShowAlert.h"
+#import "RecordMediaViewController.h"
 
 @interface RecordDetailViewController ()
+<
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate,
+    QBImagePickerControllerDelegate
+>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *latitudeLabel;
@@ -19,7 +29,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *altitudeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) IBOutlet UILabel *datetimeLabel;
-
+@property (nonatomic, weak) IBOutlet UILabel *showImgLabel;
 
 
 @end
@@ -49,6 +59,8 @@
     self.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m", record.location.altitude];
     self.addressLabel.text = record.address;
     self.datetimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:kDatetimeFormat] ;
+    
+    [self updateShowImgLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,66 +72,231 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    switch (section)
+    {
+        case 0:
+        {
+            return 5;
+        }
+            break;
+        case 1:
+        {
+            return 2;
+        }
+        default:
+        {
+            return 0;
+        }
+            break;
+    }
+    return 0;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SegueRecordMedia"])
+    {
+        @weakify(self);
+        RecordModel *record = _recordArray[_recordIndex];
+        [((RecordMediaViewController *)(segue.destinationViewController)) setImgFilePathArray:record.imgFileNameArray];
+        ((RecordMediaViewController *)(segue.destinationViewController)).resetImgArrHandler = ^(NSArray *newImgArr)
+        {
+            @strongify(self);
+            [self resetImgArray:newImgArr];
+        };
+    }else{}
 }
-*/
+
+#pragma mark - Action
+- (IBAction)cameraBtn:(id)sender
+{
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }else{}
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = sourceType;
+    
+    [self presentViewController:picker animated:YES completion:^(){}];
+}
+
+- (IBAction)albumBtn:(id)sender
+{
+    if ([QBImagePickerController isAccessible])
+    {
+        QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsMultipleSelection = NO;         // 只能选一张相片
+        imagePickerController.groupTypes = @[
+                                             @(ALAssetsGroupSavedPhotos),
+                                             @(ALAssetsGroupPhotoStream),
+                                             @(ALAssetsGroupAlbum)
+                                             ];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+        [self presentViewController:navigationController animated:YES completion:NULL];
+    }
+    else
+    {
+        NSLog(@"\n\n\n\n没有读取相册的权限\n\n\n");
+    }
+}
+
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+ 
+    if ((indexPath.section == 1) && (indexPath.row == 1))
+    {// 显示图片列表
+        [self performSegueWithIdentifier:@"SegueRecordMedia" sender:nil];
+    }else{}
+}
+
+#pragma mark - ImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^(){}];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    if (image)
+    {
+        // 保存一份到相册
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeImageToSavedPhotosAlbum:[image CGImage]
+                                  orientation:(ALAssetOrientation)[image imageOrientation]
+                              completionBlock:nil];
+        
+        [SGInfoAlert showAlert:@"正在处理图片" duration:0.2f inView:self.view];
+        [self performSelector:@selector(saveImg:) withObject:image afterDelay:0.1f];
+    }else{}
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^(){}];
+}
+
+#pragma mark - QBImagePickerControllerDelegate 
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset
+{
+    UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+    [self dismissImagePickerController];
+    
+    [self performSelector:@selector(saveImg:) withObject:tempImg afterDelay:0.1f];
+}
+//- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
+//{
+//    
+//}
+//
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
+{
+    [self dismissImagePickerController];
+}
+
+- (void)dismissImagePickerController
+{
+    if (self.presentedViewController) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } else {
+        [self.navigationController popToViewController:self animated:YES];
+    }
+}
+
+#pragma mark -
+- (void)saveImg:(UIImage *)img
+{
+    if (img)
+    {
+        NSString *fileName = [RecordStorageManager saveImgToFile:img];
+        if (StringNotEmpty(fileName))
+        {
+            RecordModel *record = _recordArray[_recordIndex];
+            NSMutableArray *fileNameArr = [[NSMutableArray alloc] initWithArray:record.imgFileNameArray];
+            [fileNameArr addObject:fileName];
+            record.imgFileNameArray = fileNameArr;
+            
+            _recordArray[_recordIndex] = record;
+            [RecordStorageManagerObj resetRecords:_recordArray];
+            [self updateShowImgLabel];
+            [SGInfoAlert showAlert:@"保存成功" duration:0.3f inView:self.view];
+        }else{APP_ASSERT_STOP}
+    }else{APP_ASSERT_STOP}
+}
+
+- (void)updateShowImgLabel
+{
+    RecordModel *record = _recordArray[_recordIndex];
+    self.showImgLabel.text = [NSString stringWithFormat:@"查看相片 - 共 %d 张", (record.imgFileNameArray ? record.imgFileNameArray.count : 0)];
+}
+
+- (void)resetImgArray:(NSArray *)imgPathArray
+{
+    RecordModel *record = _recordArray[_recordIndex];
+    NSMutableArray *fileNameArr = [[NSMutableArray alloc] initWithArray:imgPathArray];
+    record.imgFileNameArray = fileNameArr;
+    _recordArray[_recordIndex] = record;
+    [RecordStorageManagerObj resetRecords:_recordArray];
+    [self updateShowImgLabel];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

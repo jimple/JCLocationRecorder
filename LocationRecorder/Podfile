@@ -16,4 +16,5 @@ pod 'SIAlertView'
 pod 'UzysCircularProgressPullToRefresh'
 pod 'AFNetworking'
 pod 'pop'
+pod 'QBImagePickerController'
 

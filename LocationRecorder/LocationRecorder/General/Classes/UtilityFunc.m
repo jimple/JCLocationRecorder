@@ -493,7 +493,71 @@
                            alpha:1.0f];
 }
 
+// 获取document文件夹中的文件路径
++ (NSString *)getFilePathFromDocument:(NSString *)strFileName
+{
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:strFileName];
+}
 
+// 判断文件是否存在
++ (BOOL) isFileExist:(NSString *)strFilePath
+{
+    NSFileManager *objFileMgr = [NSFileManager defaultManager];
+    return [objFileMgr fileExistsAtPath:strFilePath];
+}
+// 判断目录是否存在
++ (BOOL)isFolderExist:(NSString *)strFolderPath
+{
+    BOOL bRet = NO;
+    
+    NSFileManager *objFileMgr = [NSFileManager defaultManager];
+    BOOL bIsFolder = NO;
+    BOOL bIsExist = [objFileMgr fileExistsAtPath:strFolderPath isDirectory:&bIsFolder];
+    bRet = bIsFolder && bIsExist;
+    
+    return bRet;
+}
+
+// 创建一个目录
++ (BOOL)createFolder:(NSString *)strFolderPath
+{
+    BOOL bRet = NO;
+    NSError *error;
+    if ([[NSFileManager defaultManager] createDirectoryAtPath:strFolderPath
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:&error])
+    {
+        bRet = YES;
+    }
+    else
+    {
+        bRet = NO;
+    }
+    
+    return bRet;
+}
+
+// UIImage缩放
++ (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize;
+{
+    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
+    
+    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
++ (UIImage *)reSizeImage:(UIImage *)image toSize:(CGSize)reSize
+{
+    UIGraphicsBeginImageContext(CGSizeMake(reSize.width, reSize.height));
+    [image drawInRect:CGRectMake(0, 0, reSize.width, reSize.height)];
+    UIImage *reSizeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return reSizeImage;
+}
 
 
 
