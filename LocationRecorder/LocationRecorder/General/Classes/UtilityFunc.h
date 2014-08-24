@@ -80,6 +80,37 @@
 // 十六进制字符串转颜色
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert defaultColor:(UIColor *)defaultColor;
 
+// 获取document文件夹中的文件路径
++ (NSString *)getFilePathFromDocument:(NSString *)strFileName;
+
+// 判断文件是否存在
++ (BOOL)isFileExist:(NSString *)strFilePath;
+// 判断目录是否存在
++ (BOOL)isFolderExist:(NSString *)strFolderPath;
+
+// 创建一个目录
++ (BOOL)createFolder:(NSString *)strFolderPath;
+
+// UIImage缩放
++ (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize;
++ (UIImage *)reSizeImage:(UIImage *)image toSize:(CGSize)reSize;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

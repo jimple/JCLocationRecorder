@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		056C31A019A7AD6800D9E6B4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C319F19A7AD6800D9E6B4 /* MessageUI.framework */; };
+		0522F72319AA4B4C00C83F36 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0522F72219AA4B4C00C83F36 /* MessageUI.framework */; };
 		071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202CB199BA2EC00ADD9C6 /* RecordListCell.m */; };
 		071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */; };
 		071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */; };
@@ -19,11 +19,8 @@
 		07ADCB51199649F200D36620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB50199649F200D36620 /* main.m */; };
 		07ADCB5D199649F200D36620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5B199649F200D36620 /* Main.storyboard */; };
 		07ADCB5F199649F200D36620 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADCB5E199649F200D36620 /* Images.xcassets */; };
-		07ADCB6B199649F200D36620 /* LocationRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB6A199649F200D36620 /* LocationRecorderTests.m */; };
 		07ADCBB019964B1600D36620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB7619964B1600D36620 /* AppDelegate.m */; };
 		07ADCBB119964B1600D36620 /* NSTimer+PauseTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB7A19964B1600D36620 /* NSTimer+PauseTimer.m */; };
-		07ADCBB219964B1600D36620 /* UIButton+SpringTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB7C19964B1600D36620 /* UIButton+SpringTouch.m */; };
-		07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB7F19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m */; };
 		07ADCBB419964B1600D36620 /* UtilityFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB8119964B1600D36620 /* UtilityFunc.m */; };
 		07ADCBB619964B1600D36620 /* GVUserDefaults+AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB9519964B1600D36620 /* GVUserDefaults+AppConfig.m */; };
 		07ADCBB719964B1600D36620 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCB9819964B1600D36620 /* BaseNavigationController.m */; };
@@ -35,7 +32,6 @@
 		07ADCBBD19964B1600D36620 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBA919964B1600D36620 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w"; }; };
 		07ADCBBE19964B1600D36620 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBAC19964B1600D36620 /* Reachability.m */; };
 		07ADCBBF19964B1600D36620 /* SGInfoAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBAF19964B1600D36620 /* SGInfoAlert.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		07ADCBC219964E0E00D36620 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADCBC119964E0E00D36620 /* CoreGraphics.framework */; };
 		07ADCBC419964E1300D36620 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADCBC319964E1300D36620 /* UIKit.framework */; };
 		07ADCBC619964E1B00D36620 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADCBC519964E1B00D36620 /* CoreLocation.framework */; };
 		07ADCBCA1996524100D36620 /* LocationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBC91996524100D36620 /* LocationNavigationController.m */; };
@@ -49,21 +45,14 @@
 		07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */; };
 		07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */; };
 		07ADCBF21997A73D00D36620 /* RecordStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ADCBF11997A73D00D36620 /* RecordStorageManager.m */; };
+		07BB314B19A9CF3A00EF3707 /* RecordMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */; };
+		07BB314E19A9D30200EF3707 /* RecordImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB314D19A9D30200EF3707 /* RecordImgCell.m */; };
+		07BB315119A9DC7100EF3707 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */; };
 		EA50E1065A344D04BCFFC072 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F288FC416A8E4C36906D57B3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		07ADCB65199649F200D36620 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07ADCB43199649F200D36620 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 07ADCB4A199649F200D36620;
-			remoteInfo = LocationRecorder;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		056C319F19A7AD6800D9E6B4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0522F72219AA4B4C00C83F36 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		071202CA199BA2EC00ADD9C6 /* RecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListCell.h; sourceTree = "<group>"; };
 		071202CB199BA2EC00ADD9C6 /* RecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListCell.m; sourceTree = "<group>"; };
 		071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
@@ -84,17 +73,10 @@
 		07ADCB50199649F200D36620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07ADCB5C199649F200D36620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07ADCB5E199649F200D36620 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		07ADCB64199649F200D36620 /* LocationRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		07ADCB69199649F200D36620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07ADCB6A199649F200D36620 /* LocationRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationRecorderTests.m; sourceTree = "<group>"; };
 		07ADCB7519964B1600D36620 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07ADCB7619964B1600D36620 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07ADCB7919964B1600D36620 /* NSTimer+PauseTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+PauseTimer.h"; sourceTree = "<group>"; };
 		07ADCB7A19964B1600D36620 /* NSTimer+PauseTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+PauseTimer.m"; sourceTree = "<group>"; };
-		07ADCB7B19964B1600D36620 /* UIButton+SpringTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SpringTouch.h"; sourceTree = "<group>"; };
-		07ADCB7C19964B1600D36620 /* UIButton+SpringTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SpringTouch.m"; sourceTree = "<group>"; };
-		07ADCB7E19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UtilityFunc+ValueTransformerForModel.h"; sourceTree = "<group>"; };
-		07ADCB7F19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UtilityFunc+ValueTransformerForModel.m"; sourceTree = "<group>"; };
 		07ADCB8019964B1600D36620 /* UtilityFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityFunc.h; sourceTree = "<group>"; };
 		07ADCB8119964B1600D36620 /* UtilityFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFunc.m; sourceTree = "<group>"; };
 		07ADCB8819964B1600D36620 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
@@ -123,7 +105,6 @@
 		07ADCBAE19964B1600D36620 /* SGInfoAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGInfoAlert.h; sourceTree = "<group>"; };
 		07ADCBAF19964B1600D36620 /* SGInfoAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGInfoAlert.m; sourceTree = "<group>"; };
 		07ADCBC019964B7100D36620 /* LocationRecorder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocationRecorder-Prefix.pch"; sourceTree = "<group>"; };
-		07ADCBC119964E0E00D36620 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		07ADCBC319964E1300D36620 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		07ADCBC519964E1B00D36620 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		07ADCBC81996524100D36620 /* LocationNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationNavigationController.h; sourceTree = "<group>"; };
@@ -140,14 +121,20 @@
 		07ADCBDB199653AD00D36620 /* RecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListViewController.m; sourceTree = "<group>"; };
 		07ADCBE11997064D00D36620 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
 		07ADCBE21997064D00D36620 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
-		07ADCBE419970F8300D36620 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
-		07ADCBE519970F8300D36620 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		07ADCBE419970F8300D36620 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordModel.h; path = DataModel/RecordModel.h; sourceTree = "<group>"; };
+		07ADCBE519970F8300D36620 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordModel.m; path = DataModel/RecordModel.m; sourceTree = "<group>"; };
 		07ADCBE919971F2100D36620 /* TransformCorrdinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformCorrdinate.h; sourceTree = "<group>"; };
 		07ADCBEA19971F2100D36620 /* TransformCorrdinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformCorrdinate.m; sourceTree = "<group>"; };
 		07ADCBED19979EA200D36620 /* AutoDismissKeyboardViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDismissKeyboardViewHelper.h; sourceTree = "<group>"; };
 		07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDismissKeyboardViewHelper.m; sourceTree = "<group>"; };
 		07ADCBF01997A73D00D36620 /* RecordStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStorageManager.h; sourceTree = "<group>"; };
 		07ADCBF11997A73D00D36620 /* RecordStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStorageManager.m; sourceTree = "<group>"; };
+		07BB314919A9CF3900EF3707 /* RecordMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordMediaViewController.h; sourceTree = "<group>"; };
+		07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordMediaViewController.m; sourceTree = "<group>"; };
+		07BB314C19A9D30200EF3707 /* RecordImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordImgCell.h; sourceTree = "<group>"; };
+		07BB314D19A9D30200EF3707 /* RecordImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordImgCell.m; sourceTree = "<group>"; };
+		07BB314F19A9DC7100EF3707 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		F1DE7F0032174374B835218D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F288FC416A8E4C36906D57B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,19 +144,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C31A019A7AD6800D9E6B4 /* MessageUI.framework in Frameworks */,
+				0522F72319AA4B4C00C83F36 /* MessageUI.framework in Frameworks */,
 				071202DB19A0947C00ADD9C6 /* MapKit.framework in Frameworks */,
 				07ADCBC619964E1B00D36620 /* CoreLocation.framework in Frameworks */,
 				07ADCBC419964E1300D36620 /* UIKit.framework in Frameworks */,
-				07ADCBC219964E0E00D36620 /* CoreGraphics.framework in Frameworks */,
 				EA50E1065A344D04BCFFC072 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		07ADCB61199649F200D36620 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				07ADCB4D199649F200D36620 /* LocationRecorder */,
-				07ADCB67199649F200D36620 /* LocationRecorderTests */,
 				07ADCB4C199649F200D36620 /* Products */,
 				F1DE7F0032174374B835218D /* Pods.xcconfig */,
 				3E1D23E1D3FC42F39894CDEB /* Frameworks */,
@@ -204,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				07ADCB4B199649F200D36620 /* LocationRecorder.app */,
-				07ADCB64199649F200D36620 /* LocationRecorderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,10 +191,8 @@
 			children = (
 				07ADCB7419964B1600D36620 /* AppDelegate */,
 				07ADCB7719964B1600D36620 /* General */,
-				07ADCB8419964B1600D36620 /* Helpers */,
 				07ADCB8719964B1600D36620 /* Macro */,
 				07ADCB8D19964B1600D36620 /* Model */,
-				07ADCB9019964B1600D36620 /* Networking */,
 				07ADCB9119964B1600D36620 /* Sections */,
 				07ADCB9E19964B1600D36620 /* Vendors */,
 				07ADCB5B199649F200D36620 /* Main.storyboard */,
@@ -237,23 +212,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		07ADCB67199649F200D36620 /* LocationRecorderTests */ = {
-			isa = PBXGroup;
-			children = (
-				07ADCB6A199649F200D36620 /* LocationRecorderTests.m */,
-				07ADCB68199649F200D36620 /* Supporting Files */,
-			);
-			path = LocationRecorderTests;
-			sourceTree = "<group>";
-		};
-		07ADCB68199649F200D36620 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				07ADCB69199649F200D36620 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		07ADCB7419964B1600D36620 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +226,6 @@
 			children = (
 				07ADCB7819964B1600D36620 /* Categories */,
 				07ADCB7D19964B1600D36620 /* Classes */,
-				07ADCB8219964B1600D36620 /* ViewCtrls */,
 				07ADCB8319964B1600D36620 /* Views */,
 			);
 			path = General;
@@ -281,8 +238,6 @@
 				071202D419A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m */,
 				07ADCB7919964B1600D36620 /* NSTimer+PauseTimer.h */,
 				07ADCB7A19964B1600D36620 /* NSTimer+PauseTimer.m */,
-				07ADCB7B19964B1600D36620 /* UIButton+SpringTouch.h */,
-				07ADCB7C19964B1600D36620 /* UIButton+SpringTouch.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -292,19 +247,10 @@
 			children = (
 				07ADCBED19979EA200D36620 /* AutoDismissKeyboardViewHelper.h */,
 				07ADCBEE19979EA200D36620 /* AutoDismissKeyboardViewHelper.m */,
-				07ADCB7E19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.h */,
-				07ADCB7F19964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m */,
 				07ADCB8019964B1600D36620 /* UtilityFunc.h */,
 				07ADCB8119964B1600D36620 /* UtilityFunc.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		07ADCB8219964B1600D36620 /* ViewCtrls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewCtrls;
 			sourceTree = "<group>";
 		};
 		07ADCB8319964B1600D36620 /* Views */ = {
@@ -313,13 +259,6 @@
 				071202DC19A095A200ADD9C6 /* MapPin */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		07ADCB8419964B1600D36620 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		07ADCB8719964B1600D36620 /* Macro */ = {
@@ -337,33 +276,10 @@
 		07ADCB8D19964B1600D36620 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				07ADCB8E19964B1600D36620 /* DataModel */,
-				07ADCB8F19964B1600D36620 /* ViewModel */,
+				07ADCBE519970F8300D36620 /* RecordModel.m */,
+				07ADCBE419970F8300D36620 /* RecordModel.h */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		07ADCB8E19964B1600D36620 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				07ADCBE419970F8300D36620 /* RecordModel.h */,
-				07ADCBE519970F8300D36620 /* RecordModel.m */,
-			);
-			path = DataModel;
-			sourceTree = "<group>";
-		};
-		07ADCB8F19964B1600D36620 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		07ADCB9019964B1600D36620 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		07ADCB9119964B1600D36620 /* Sections */ = {
@@ -372,7 +288,6 @@
 				07ADCB9219964B1600D36620 /* Cells */,
 				07ADCB9319964B1600D36620 /* Manager */,
 				07ADCB9619964B1600D36620 /* ViewCtrls */,
-				07ADCB9D19964B1600D36620 /* Views */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -382,6 +297,8 @@
 			children = (
 				071202CA199BA2EC00ADD9C6 /* RecordListCell.h */,
 				071202CB199BA2EC00ADD9C6 /* RecordListCell.m */,
+				07BB314C19A9D30200EF3707 /* RecordImgCell.h */,
+				07BB314D19A9D30200EF3707 /* RecordImgCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -412,17 +329,14 @@
 				07ADCBDB199653AD00D36620 /* RecordListViewController.m */,
 				071202D0199BA94B00ADD9C6 /* RecordDetailViewController.h */,
 				071202D1199BA94B00ADD9C6 /* RecordDetailViewController.m */,
+				07BB314919A9CF3900EF3707 /* RecordMediaViewController.h */,
+				07BB314A19A9CF3900EF3707 /* RecordMediaViewController.m */,
+				07BB314F19A9DC7100EF3707 /* PhotoDetailViewController.h */,
+				07BB315019A9DC7100EF3707 /* PhotoDetailViewController.m */,
 				071202D719A0916700ADD9C6 /* SettingViewController.h */,
 				071202D819A0916700ADD9C6 /* SettingViewController.m */,
 			);
 			path = ViewCtrls;
-			sourceTree = "<group>";
-		};
-		07ADCB9D19964B1600D36620 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		07ADCB9E19964B1600D36620 /* Vendors */ = {
@@ -523,11 +437,10 @@
 		3E1D23E1D3FC42F39894CDEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				056C319F19A7AD6800D9E6B4 /* MessageUI.framework */,
+				0522F72219AA4B4C00C83F36 /* MessageUI.framework */,
 				071202DA19A0947C00ADD9C6 /* MapKit.framework */,
 				07ADCBC519964E1B00D36620 /* CoreLocation.framework */,
 				07ADCBC319964E1300D36620 /* UIKit.framework */,
-				07ADCBC119964E0E00D36620 /* CoreGraphics.framework */,
 				F288FC416A8E4C36906D57B3 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -555,24 +468,6 @@
 			productReference = 07ADCB4B199649F200D36620 /* LocationRecorder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		07ADCB63199649F200D36620 /* LocationRecorderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 07ADCB71199649F200D36620 /* Build configuration list for PBXNativeTarget "LocationRecorderTests" */;
-			buildPhases = (
-				07ADCB60199649F200D36620 /* Sources */,
-				07ADCB61199649F200D36620 /* Frameworks */,
-				07ADCB62199649F200D36620 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				07ADCB66199649F200D36620 /* PBXTargetDependency */,
-			);
-			name = LocationRecorderTests;
-			productName = LocationRecorderTests;
-			productReference = 07ADCB64199649F200D36620 /* LocationRecorderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -584,10 +479,6 @@
 				TargetAttributes = {
 					07ADCB4A199649F200D36620 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					07ADCB63199649F200D36620 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 07ADCB4A199649F200D36620;
 					};
 				};
 			};
@@ -605,7 +496,6 @@
 			projectRoot = "";
 			targets = (
 				07ADCB4A199649F200D36620 /* LocationRecorder */,
-				07ADCB63199649F200D36620 /* LocationRecorderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -617,13 +507,6 @@
 			files = (
 				07ADCB5D199649F200D36620 /* Main.storyboard in Resources */,
 				07ADCB5F199649F200D36620 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		07ADCB62199649F200D36620 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +555,6 @@
 				07ADCBCA1996524100D36620 /* LocationNavigationController.m in Sources */,
 				07ADCBD31996534D00D36620 /* SettingNavigationController.m in Sources */,
 				071202CC199BA2EC00ADD9C6 /* RecordListCell.m in Sources */,
-				07ADCBB219964B1600D36620 /* UIButton+SpringTouch.m in Sources */,
 				07ADCBB819964B1600D36620 /* BaseViewController.m in Sources */,
 				07ADCBB019964B1600D36620 /* AppDelegate.m in Sources */,
 				07ADCBB419964B1600D36620 /* UtilityFunc.m in Sources */,
@@ -683,10 +565,11 @@
 				07ADCBDC199653AD00D36620 /* RecordListViewController.m in Sources */,
 				07ADCBBB19964B1600D36620 /* JCLoadMoreActivityIndicator.m in Sources */,
 				071202D919A0916700ADD9C6 /* SettingViewController.m in Sources */,
+				07BB315119A9DC7100EF3707 /* PhotoDetailViewController.m in Sources */,
 				071202D2199BA94B00ADD9C6 /* RecordDetailViewController.m in Sources */,
 				07ADCBEF19979EA200D36620 /* AutoDismissKeyboardViewHelper.m in Sources */,
+				07BB314E19A9D30200EF3707 /* RecordImgCell.m in Sources */,
 				07ADCBB919964B1600D36620 /* MainTabBarController.m in Sources */,
-				07ADCBB319964B1600D36620 /* UtilityFunc+ValueTransformerForModel.m in Sources */,
 				071202D519A089C100ADD9C6 /* SGInfoAlert+ShowAlert.m in Sources */,
 				07ADCBBD19964B1600D36620 /* OpenUDID.m in Sources */,
 				07ADCBE619970F8300D36620 /* RecordModel.m in Sources */,
@@ -700,27 +583,12 @@
 				07ADCBBC19964B1600D36620 /* UIScrollView+JCLoadMoreIndicator.m in Sources */,
 				07ADCBEB19971F2100D36620 /* TransformCorrdinate.m in Sources */,
 				07ADCBD91996539D00D36620 /* MapViewController.m in Sources */,
+				07BB314B19A9CF3A00EF3707 /* RecordMediaViewController.m in Sources */,
 				071202E219A095A200ADD9C6 /* MapModeNumberPinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		07ADCB60199649F200D36620 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				07ADCB6B199649F200D36620 /* LocationRecorderTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		07ADCB66199649F200D36620 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 07ADCB4A199649F200D36620 /* LocationRecorder */;
-			targetProxy = 07ADCB65199649F200D36620 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		07ADCB5B199649F200D36620 /* Main.storyboard */ = {
@@ -840,40 +708,6 @@
 			};
 			name = Release;
 		};
-		07ADCB72199649F200D36620 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LocationRecorderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationRecorder.app/LocationRecorder";
-			};
-			name = Debug;
-		};
-		07ADCB73199649F200D36620 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LocationRecorderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationRecorder.app/LocationRecorder";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -891,15 +725,6 @@
 			buildConfigurations = (
 				07ADCB6F199649F200D36620 /* Debug */,
 				07ADCB70199649F200D36620 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		07ADCB71199649F200D36620 /* Build configuration list for PBXNativeTarget "LocationRecorderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				07ADCB72199649F200D36620 /* Debug */,
-				07ADCB73199649F200D36620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

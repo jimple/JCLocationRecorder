@@ -14,6 +14,7 @@
 #import "RecordStorageManager.h"
 #import "SGInfoAlert+ShowAlert.h"
 
+
 @interface SettingViewController ()
 
 @end
@@ -41,12 +42,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return 1;
 }
 
 /*
@@ -128,7 +129,6 @@
     [SGInfoAlert showAlert:@"删除成功" duration:0.5f inView:self.view];
 }
 
-
 - (IBAction)sendAllRecordByEmail:(id)sender
 {
     NSString *_kmlFilename = [RecordStorageManagerObj createKMLfileFromRecords];
@@ -144,7 +144,7 @@
             
             NSArray *toAddress = [NSArray arrayWithObject:@""];
             NSArray *ccAddress = [NSArray arrayWithObject:@""];;
-            NSString *emailBody = @"<H3>点位信息KML文件,请查阅附件。</H3>";
+            NSString *emailBody = @"<H3>当前存储的点位信息历史记录（KML格式）,请查阅附件。</H3>";
             
             //设置收件人
             [mailCompose setToRecipients:toAddress];
@@ -157,7 +157,7 @@
             [mailCompose setSubject:@"点位信息KML文件"];
             //设置邮件附件{mimeType:文件格式|fileName:文件名}
             NSData* pData = [[NSData alloc]initWithContentsOfFile:_kmlFilename];
-            [mailCompose addAttachmentData:pData mimeType:@"kml" fileName:_kmlFilename];
+            [mailCompose addAttachmentData:pData mimeType:@"kml" fileName:@"点位历史记录.kml"];
             //设置邮件视图在当前视图上显示方式
             [self presentViewController:mailCompose animated:YES completion:NULL];
         }
@@ -170,11 +170,14 @@
     
     
     //如何删除已经发送成功的KML文件？
-
+    
     
     
     
 }
+
+
+
 
 
 - (void)showFailedMsgTitle:(NSString *)title subTitle:(NSString *)subTitle
@@ -206,6 +209,14 @@
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+
+
+
+
+
+
+
 
 
 

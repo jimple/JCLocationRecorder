@@ -43,6 +43,8 @@ install_resource()
 }
 install_resource "NZAlertView/NZAlertView/NZAlertView-Icons.bundle"
 install_resource "NZAlertView/NZAlertView/Views/NZAlertView.xib"
+install_resource "QBImagePickerController/Pod/Assets/en.lproj"
+install_resource "QBImagePickerController/Pod/Assets/ja.lproj"
 install_resource "SIAlertView/SIAlertView/SIAlertView.bundle"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundError@2x.png"
@@ -61,7 +63,6 @@ install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundW
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationButtonBackground.png"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationButtonBackground@2x.png"
 install_resource "TSMessages/TSMessages/Resources/TSMessagesDefaultDesign.json"
-install_resource "UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library/centerIcon@2x.png"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then

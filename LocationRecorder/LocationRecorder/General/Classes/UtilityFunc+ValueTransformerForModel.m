@@ -59,6 +59,7 @@
     }];
 }
 
+
 // string -> array with modelClass
 + (NSValueTransformer *)arrayJSONTransformerWithModelClass:(Class)modelClass
 {

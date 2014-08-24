@@ -10,4 +10,5 @@
 
 @interface SettingViewController : UITableViewController<MFMailComposeViewControllerDelegate>
 
+
 @end

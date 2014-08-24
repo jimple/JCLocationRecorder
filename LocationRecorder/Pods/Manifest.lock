@@ -1,52 +1,12 @@
 PODS:
-  - AFNetworking (2.3.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.3.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.3.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.3.1)
-  - AFNetworking/Security (2.3.1)
-  - AFNetworking/Serialization (2.3.1)
-  - AFNetworking/UIKit (2.3.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - BlocksKit (2.2.3):
-    - BlocksKit/All
-  - BlocksKit/All (2.2.3):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.3)
-  - BlocksKit/DynamicDelegate (2.2.3)
-  - BlocksKit/MessageUI (2.2.3):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.3):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
   - GVUserDefaults (0.9.5)
   - HexColors (2.2.1)
   - iOS-KML-Framework (0.0.2):
     - TBXML (~> 1.5)
-  - LBBlurredImage (0.2.0)
-  - Mantle (1.5):
-    - Mantle/extobjc
-  - Mantle/extobjc (1.5)
-  - MBProgressHUD (0.8)
   - NZAlertView (0.0.11):
     - UIImage-Helpers
   - pop (1.0.6)
+  - QBImagePickerController (2.2)
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI
   - ReactiveCocoa/Core (2.3.1):
@@ -54,54 +14,35 @@ PODS:
   - ReactiveCocoa/no-arc (2.3.1)
   - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core
-  - SDWebImage/Core (3.7.1)
   - SIAlertView (1.3)
   - TBXML (1.5)
   - TSMessages (0.9.9):
     - HexColors
-  - UIActivityIndicator-for-SDWebImage (1.2):
-    - SDWebImage (~> 3.7)
   - UIImage-Helpers (0.0.2)
-  - UzysCircularProgressPullToRefresh (1.0.7)
 
 DEPENDENCIES:
-  - AFNetworking
-  - BlocksKit
   - GVUserDefaults
   - HexColors
   - iOS-KML-Framework
-  - LBBlurredImage
-  - Mantle
-  - MBProgressHUD
   - NZAlertView
   - pop
+  - QBImagePickerController
   - ReactiveCocoa
-  - SDWebImage
   - SIAlertView
+  - TBXML
   - TSMessages
-  - UIActivityIndicator-for-SDWebImage
-  - UzysCircularProgressPullToRefresh
 
 SPEC CHECKSUMS:
-  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
   GVUserDefaults: 66c524fc1709b2d95db774f4bb665dfad4671168
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   iOS-KML-Framework: 5a498b018d3988e2fb49413902c4e4e34ea30b5c
-  LBBlurredImage: 30cc42be977bbcece286d26d2d9c08b8be7f05e8
-  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
-  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   NZAlertView: d1d2c51cd5dbfaa663f26b7c12a9195a8be7b100
   pop: e518794da38942c05255eb64b36d894e70cb4f00
+  QBImagePickerController: 8325d5ac8ba69e65af78ba43aa5e0190bdd016eb
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
   TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
   TSMessages: 2999ef55e532378692e9d14d32da2bb60e285129
-  UIActivityIndicator-for-SDWebImage: 8bd92c15280fbe54816448c6b14674145eee05c7
   UIImage-Helpers: f42c86ad5ed925f22b56a81c89f2f15ebeadfd3d
-  UzysCircularProgressPullToRefresh: dae115e62fcbaaf599f782562f1655bcde1191e2
 
 COCOAPODS: 0.33.1

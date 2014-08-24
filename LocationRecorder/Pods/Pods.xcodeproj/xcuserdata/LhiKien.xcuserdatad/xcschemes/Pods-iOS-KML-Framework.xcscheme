@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "658C04B07CC74F6B98A89886"
+               BlueprintIdentifier = "9FF9677EDC284DDCA42D95B2"
                BuildableName = "libPods-iOS-KML-Framework.a"
                BlueprintName = "Pods-iOS-KML-Framework"
                ReferencedContainer = "container:Pods.xcodeproj">
