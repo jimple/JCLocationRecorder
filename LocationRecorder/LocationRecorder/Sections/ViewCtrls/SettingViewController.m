@@ -107,7 +107,7 @@
 #pragma mark -
 - (IBAction)removeAllRecords:(id)sender
 {
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"提示" andMessage:@"删除所有记录，本操作将无法恢复！\n确定删除？"];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"提示" andMessage:@"删除包括相片在内的所有位置记录，\n本操作将无法恢复！！\n确定删除？"];
     alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
     @weakify(self);
     [alertView addButtonWithTitle:@"取消"
@@ -166,14 +166,6 @@
     {
         [self showFailedMsgTitle:@"邮件发送失败" subTitle:@"请检查点位信息列表是否为空。"];
     }
-    
-    
-    
-    //如何删除已经发送成功的KML文件？
-    
-    
-    
-    
 }
 
 
@@ -208,6 +200,9 @@
             break;
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    //删除KML文件，临时生成即时删除，如果邮件发送失败或取消，会累积很多文件
+    [RecordStorageManagerObj clearKmlFolder];
 }
 
 

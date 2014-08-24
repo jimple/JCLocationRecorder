@@ -40,7 +40,8 @@
 //利用所有点位信息记录生成KML文件, 返回文件名
 - (NSString *)createKMLfileFromRecords;
 
-
+//删除整个KML文件夹
+-(BOOL)clearKmlFolder;
 
 
 

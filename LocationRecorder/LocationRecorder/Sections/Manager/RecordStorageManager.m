@@ -13,9 +13,9 @@
 
 #define kCurrRecordListKey                  @"CurrRecordList"
 #define kImgFolderName                      @"PhotosFolder"
+#define kKmlFolderName                      @"KmlFilesFolder"
 
-
-#define kJPEGFileQuality                    0.8f        // ! jpg 质量参数设置，参数越小图片压缩越大    0.0 - 1.0
+#define kJPEGFileQuality                    0.8f  // ! jpg 质量参数设置，参数越小图片压缩越大    0.0 - 1.0
 
 
 @interface RecordStorageManager ()
@@ -35,6 +35,7 @@
     return s_manager;
 }
 
+//图片文件夹名
 + (NSString *)imgFolderPath
 {
     static NSString *path;
@@ -46,13 +47,26 @@
     return path;
 }
 
+//KML文件夹名
++ (NSString *)kmlFolderPath
+{
+    static NSString *path;
+    if (!StringNotEmpty(path))
+    {
+        path = [UtilityFunc getFilePathFromDocument:kKmlFolderName];
+    }else{}
+    
+    return path;
+}
+
 // 把图片保存到图片目录下，返回文件名称
 + (NSString *)saveImgToFile:(UIImage *)image
 {
     NSString *fileName = @"";
     if (image)
     {
-        if (![UtilityFunc isFileExist:[self.class imgFolderPath]])
+        //if (![UtilityFunc isFileExist:[self.class imgFolderPath]])
+        if (![UtilityFunc isFolderExist:[self.class imgFolderPath]])
         {
             [UtilityFunc createFolder:[self.class imgFolderPath]];
         }else{}
@@ -93,7 +107,9 @@
     return succ;
 }
 
+
 #pragma mark -
+
 - (void)saveRecord:(RecordModel *)recordModel
 {
     NSMutableDictionary *recordListDic = [[NSMutableDictionary alloc] initWithDictionary:AppConfigInstance.locationRecordDic];
@@ -150,14 +166,13 @@
     return recordArray;
 }
 
-// 删除数据同时删除图片文件目录
+// 删除数据同时删除图片文件、KML文件目录
 - (void)removeAllRecords
 {
     [self resetRecords:[[NSArray alloc] init]];
     [self.class clearImgFolder];
+    [self clearKmlFolder];
 }
-
-
 
 //利用所有点位信息记录生成KML文件
 - (NSString *)createKMLfileFromRecords
@@ -181,6 +196,12 @@
         //添加线信息
         KMLPlacemark *line = [self addLines:recordPtns];
         [doc addFeature:line];
+        
+        //创建KML目录
+        if (![UtilityFunc isFolderExist:[self.class kmlFolderPath]])
+        {
+            [UtilityFunc createFolder:[self.class kmlFolderPath]];
+        }else{}
         
         //写入文件
         NSString *kmlString = root.kml;
@@ -206,7 +227,11 @@
 {
     KMLPlacemark *placemark = [KMLPlacemark new];
     placemark.name = recordModel.title;                //点名
-    placemark.descriptionValue = recordModel.address;  //地址
+    
+    NSTimeInterval recordTime = [recordModel.recordTime doubleValue]; // 时间是一个1970至今的秒数
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:recordTime]; // 获得时间类型的时间
+    NSString *dateStr = [UtilityFunc getStringFromDate:date byFormat:@"yyyy-MM-dd HH:ss:mm"];   // 时间转成字符串输出
+    placemark.descriptionValue = [NSString stringWithFormat:@"地址: %@\n时间:%@", recordModel.address, dateStr];  //地址+时间
     
     KMLPoint *point = [KMLPoint new];
     placemark.geometry = point;
@@ -258,10 +283,26 @@
     NSString *dateString = [formatter stringFromDate:[NSDate date]];
     
     NSString *fileName = [NSString stringWithFormat:@"log_%@.kml", dateString];
-    return [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+    
+    //return [NSString stringWithFormat:@"%@/%@", [self.class kmlFolderPath], fileName];
+    return [[self.class kmlFolderPath] stringByAppendingPathComponent:fileName];
 }
 
-
+// 删除整个KML文件目录
+- (BOOL)clearKmlFolder
+{
+    BOOL succ = NO;
+    NSString *folderPath = [self.class kmlFolderPath];
+    if ([UtilityFunc isFolderExist:folderPath])
+    {
+        succ = [[NSFileManager defaultManager] removeItemAtPath:folderPath error:nil];
+    }
+    else
+    {
+        succ = YES;
+    }
+    return succ;
+}
 
 
 // 遍历记录数组，读取数组元素的内容。

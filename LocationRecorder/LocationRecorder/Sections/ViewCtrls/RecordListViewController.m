@@ -91,13 +91,37 @@
     
     NSUInteger index = [self arrayIndexFromTableIndexPath:indexPath];
     RecordModel *record = _recordArray[index];
+
     cell.titleLabel.text = record.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%.6f  %.6f", record.location.coordinate.longitude, record.location.coordinate.latitude];
     cell.altitudeLabel.text = [NSString stringWithFormat:@"%.2f m (±%.2fm)", record.location.altitude, record.location.verticalAccuracy];
     cell.dateTimeLabel.text = [UtilityFunc getStringFromDate:[NSDate dateWithTimeIntervalSince1970:record.recordTime.doubleValue] byFormat:@"yyyy-MM-dd hh:mm:ss"];
     cell.indexLabel.text = [NSString stringWithFormat:@"%d", index+1];
     
-    cell.imageView.image = [UIImage imageNamed:@"DefaultImg"];
+    //缩略图
+    if (record.imgFileNameArray.count != 0)
+    {
+        NSString *fileName = record.imgFileNameArray[0]; //取第一张图片作为该点的图标
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", [RecordStorageManager imgFolderPath], fileName];
+        NSString *thumbFilePath = [NSString stringWithFormat:@"%@/%@", [RecordStorageManager imgFolderPath], [RecordStorageManager thumbFileNameByFileName:fileName]];
+        BOOL fileExist = [UtilityFunc isFileExist:filePath];
+        if (fileExist)
+        {
+            if ([UtilityFunc isFileExist:thumbFilePath])
+            {
+                cell.imageView.image = [UIImage imageWithContentsOfFile:thumbFilePath];
+            }
+            else
+            {
+                cell.imageView.image = [UIImage imageWithContentsOfFile:filePath];
+            }
+           cell.imageView.transform = CGAffineTransformMakeScale(0.45, 0.45); //缩略图缩放
+        }
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"DefaultImg"];
+    }
     
     return cell;
 }
@@ -178,19 +202,6 @@
     // 逆序显示
     return (_recordArray.count - indexPath.row - 1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
